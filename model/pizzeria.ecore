@@ -30,8 +30,8 @@
         eType="#//Pizza"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Livreur" eSuperTypes="#//Employe">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="client" upperBound="-1"
-        eType="#//Client" eOpposite="#//Client/livreur"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commande" upperBound="-1"
+        eType="#//Commande" eOpposite="#//Commande/livreur"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="#//Employe">
     <eStructuralFeatures xsi:type="ecore:EReference" name="employe" upperBound="-1"
@@ -41,14 +41,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="Scooter" eSuperTypes="#//Vehicule"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pizza">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pateMoelleuse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recette" lowerBound="1"
-        eType="#//Recette"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" eType="#//Livreur"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recette" upperBound="-1"
+        eType="#//Recette" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Recette">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ingredient" lowerBound="1"
-        upperBound="-1" eType="#//Ingredient"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingredient" upperBound="-1"
+        eType="#//Ingredient" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ingredient">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -58,8 +57,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prenom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroDeTelephone" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="adresse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" eType="#//Livreur"
-        eOpposite="#//Livreur/client"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commande" upperBound="-1"
+        eType="#//Commande" eOpposite="#//Commande/client"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Caissier" eSuperTypes="#//Employe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Caissier" eSuperTypes="#//Employe">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commande" upperBound="-1"
+        eType="#//Commande" eOpposite="#//Commande/caissier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Commande">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="montant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pizza" upperBound="-1"
+        eType="#//Pizza"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="client" lowerBound="1"
+        eType="#//Client" eOpposite="#//Client/commande"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" eType="#//Livreur"
+        eOpposite="#//Livreur/commande"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="livrable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="caissier" eType="#//Caissier"
+        eOpposite="#//Caissier/commande"/>
+  </eClassifiers>
 </ecore:EPackage>
