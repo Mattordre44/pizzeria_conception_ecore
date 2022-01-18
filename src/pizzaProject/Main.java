@@ -25,6 +25,8 @@ public class Main {
 		racineModele.setNom("A casa di Vito : Pizza & co");
 		racineModele.setDateDeCreation(new Date());
 		racineModele.setAdresse("22 via de la mozzarella, NAPOLI");
+		
+		System.out.println(racineModele);
 
 		try {
 		    resource.save(Collections.EMPTY_MAP);
