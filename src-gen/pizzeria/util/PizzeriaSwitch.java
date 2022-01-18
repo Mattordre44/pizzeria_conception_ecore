@@ -66,111 +66,97 @@ public class PizzeriaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case PizzeriaPackage.EMPLOYE: {
-			Employe employe = (Employe) theEObject;
-			T result = caseEmploye(employe);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.PIZZERIA: {
-			Pizzeria pizzeria = (Pizzeria) theEObject;
-			T result = casePizzeria(pizzeria);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.VEHICULE: {
-			Vehicule vehicule = (Vehicule) theEObject;
-			T result = caseVehicule(vehicule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.PIZZAIOLO: {
-			Pizzaiolo pizzaiolo = (Pizzaiolo) theEObject;
-			T result = casePizzaiolo(pizzaiolo);
-			if (result == null)
-				result = caseEmploye(pizzaiolo);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.LIVREUR: {
-			Livreur livreur = (Livreur) theEObject;
-			T result = caseLivreur(livreur);
-			if (result == null)
-				result = caseEmploye(livreur);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.MANAGER: {
-			Manager manager = (Manager) theEObject;
-			T result = caseManager(manager);
-			if (result == null)
-				result = caseEmploye(manager);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.VOITURE: {
-			Voiture voiture = (Voiture) theEObject;
-			T result = caseVoiture(voiture);
-			if (result == null)
-				result = caseVehicule(voiture);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.SCOOTER: {
-			Scooter scooter = (Scooter) theEObject;
-			T result = caseScooter(scooter);
-			if (result == null)
-				result = caseVehicule(scooter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.PIZZA: {
-			Pizza pizza = (Pizza) theEObject;
-			T result = casePizza(pizza);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.RECETTE: {
-			Recette recette = (Recette) theEObject;
-			T result = caseRecette(recette);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.INGREDIENT: {
-			Ingredient ingredient = (Ingredient) theEObject;
-			T result = caseIngredient(ingredient);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.CLIENT: {
-			Client client = (Client) theEObject;
-			T result = caseClient(client);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PizzeriaPackage.CAISSIER: {
-			Caissier caissier = (Caissier) theEObject;
-			T result = caseCaissier(caissier);
-			if (result == null)
-				result = caseEmploye(caissier);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case PizzeriaPackage.EMPLOYE: {
+				Employe employe = (Employe)theEObject;
+				T result = caseEmploye(employe);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.PIZZERIA: {
+				Pizzeria pizzeria = (Pizzeria)theEObject;
+				T result = casePizzeria(pizzeria);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.VEHICULE: {
+				Vehicule vehicule = (Vehicule)theEObject;
+				T result = caseVehicule(vehicule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.PIZZAIOLO: {
+				Pizzaiolo pizzaiolo = (Pizzaiolo)theEObject;
+				T result = casePizzaiolo(pizzaiolo);
+				if (result == null) result = caseEmploye(pizzaiolo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.LIVREUR: {
+				Livreur livreur = (Livreur)theEObject;
+				T result = caseLivreur(livreur);
+				if (result == null) result = caseEmploye(livreur);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.MANAGER: {
+				Manager manager = (Manager)theEObject;
+				T result = caseManager(manager);
+				if (result == null) result = caseEmploye(manager);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.VOITURE: {
+				Voiture voiture = (Voiture)theEObject;
+				T result = caseVoiture(voiture);
+				if (result == null) result = caseVehicule(voiture);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.SCOOTER: {
+				Scooter scooter = (Scooter)theEObject;
+				T result = caseScooter(scooter);
+				if (result == null) result = caseVehicule(scooter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.PIZZA: {
+				Pizza pizza = (Pizza)theEObject;
+				T result = casePizza(pizza);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.RECETTE: {
+				Recette recette = (Recette)theEObject;
+				T result = caseRecette(recette);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.INGREDIENT: {
+				Ingredient ingredient = (Ingredient)theEObject;
+				T result = caseIngredient(ingredient);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.CLIENT: {
+				Client client = (Client)theEObject;
+				T result = caseClient(client);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.CAISSIER: {
+				Caissier caissier = (Caissier)theEObject;
+				T result = caseCaissier(caissier);
+				if (result == null) result = caseEmploye(caissier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PizzeriaPackage.COMMANDE: {
+				Commande commande = (Commande)theEObject;
+				T result = caseCommande(commande);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 
@@ -366,6 +352,21 @@ public class PizzeriaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCaissier(Caissier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Commande</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Commande</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommande(Commande object) {
 		return null;
 	}
 

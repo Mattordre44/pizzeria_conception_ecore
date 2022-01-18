@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getEmploye()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Employe extends EObject {

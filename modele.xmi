@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<pizzeria:Pizzeria xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pizzeria="http://www.example.org/pizzeria" adresse="22 via de la mozzarella, NAPOLI" nom="A casa di Vito : Pizza &amp; co" dateDeCreation="2022-01-18T20:08:13.012+0100">
+  <vehicule xsi:type="pizzeria:Voiture" imattriculation="123-ABC-456" niveauEssence="32.0" estFonctionnel="true">
+    <livreur nom="Maystre" prenom="Antonin" salaire="1400.0" dateDeNaissance="2022-01-18T20:08:13.018+0100" manager="//@employe.1" commande="//@client.0/@commande.0"/>
+  </vehicule>
+  <vehicule xsi:type="pizzeria:Scooter" imattriculation="456-CBA-789" niveauEssence="12.0" estFonctionnel="true"/>
+  <employe xsi:type="pizzeria:Pizzaiolo" nom="Carpio" prenom="Julio" salaire="1300.0" dateDeNaissance="2022-01-18T20:08:13.017+0100" manager="//@employe.1">
+    <pizza>
+      <recette duree="2 min">
+        <ingredient nom="roquette"/>
+        <ingredient nom="mozzarella"/>
+      </recette>
+      <recette>
+        <ingredient nom="jambon"/>
+      </recette>
+    </pizza>
+    <pizza pateMoelleuse="true">
+      <recette>
+        <ingredient nom="sauce Tomate"/>
+        <ingredient nom="gorgonzola"/>
+      </recette>
+    </pizza>
+  </employe>
+  <employe xsi:type="pizzeria:Manager" nom="Vito" prenom="Mario" salaire="5000.0" dateDeNaissance="2022-01-18T20:08:13.015+0100" employe="//@employe.0 //@employe.2 //@vehicule.0/@livreur"/>
+  <employe xsi:type="pizzeria:Caissier" nom="Raapoto" prenom="Gabin" salaire="1350.0" dateDeNaissance="2022-01-18T20:08:13.017+0100" manager="//@employe.1"/>
+  <client nom="Ordrenneau" prenom="Matteo" numeroDeTelephone="06.65.35.13.01" adresse="4 rue du calvaire">
+    <commande date="2022-01-18T20:08:13.021+0100" montant="15.0" pizza="//@employe.0/@pizza.0" livreur="//@vehicule.0/@livreur" livrable="true"/>
+  </client>
+</pizzeria:Pizzeria>

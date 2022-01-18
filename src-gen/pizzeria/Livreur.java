@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link pizzeria.Livreur#getClient <em>Client</em>}</li>
+ *   <li>{@link pizzeria.Livreur#getCommande <em>Commande</em>}</li>
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getLivreur()
@@ -22,17 +22,17 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Livreur extends Employe {
 	/**
-	 * Returns the value of the '<em><b>Client</b></em>' reference list.
-	 * The list contents are of type {@link pizzeria.Client}.
-	 * It is bidirectional and its opposite is '{@link pizzeria.Client#getLivreur <em>Livreur</em>}'.
+	 * Returns the value of the '<em><b>Commande</b></em>' reference list.
+	 * The list contents are of type {@link pizzeria.Commande}.
+	 * It is bidirectional and its opposite is '{@link pizzeria.Commande#getLivreur <em>Livreur</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Client</em>' reference list.
-	 * @see pizzeria.PizzeriaPackage#getLivreur_Client()
-	 * @see pizzeria.Client#getLivreur
+	 * @return the value of the '<em>Commande</em>' reference list.
+	 * @see pizzeria.PizzeriaPackage#getLivreur_Commande()
+	 * @see pizzeria.Commande#getLivreur
 	 * @model opposite="livreur"
 	 * @generated
 	 */
-	EList<Client> getClient();
+	EList<Commande> getCommande();
 
 } // Livreur

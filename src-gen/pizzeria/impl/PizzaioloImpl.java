@@ -4,12 +4,14 @@ package pizzeria.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import pizzeria.Pizza;
 import pizzeria.Pizzaiolo;
 import pizzeria.PizzeriaPackage;
@@ -29,7 +31,7 @@ import pizzeria.PizzeriaPackage;
  */
 public class PizzaioloImpl extends EmployeImpl implements Pizzaiolo {
 	/**
-	 * The cached value of the '{@link #getPizza() <em>Pizza</em>}' reference list.
+	 * The cached value of the '{@link #getPizza() <em>Pizza</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPizza()
@@ -64,7 +66,7 @@ public class PizzaioloImpl extends EmployeImpl implements Pizzaiolo {
 	 */
 	public EList<Pizza> getPizza() {
 		if (pizza == null) {
-			pizza = new EObjectResolvingEList<Pizza>(Pizza.class, this, PizzeriaPackage.PIZZAIOLO__PIZZA);
+			pizza = new EObjectContainmentEList<Pizza>(Pizza.class, this, PizzeriaPackage.PIZZAIOLO__PIZZA);
 		}
 		return pizza;
 	}
@@ -75,10 +77,24 @@ public class PizzaioloImpl extends EmployeImpl implements Pizzaiolo {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PizzeriaPackage.PIZZAIOLO__PIZZA:
+				return ((InternalEList<?>)getPizza()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZAIOLO__PIZZA:
-			return getPizza();
+			case PizzeriaPackage.PIZZAIOLO__PIZZA:
+				return getPizza();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -92,10 +108,10 @@ public class PizzaioloImpl extends EmployeImpl implements Pizzaiolo {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZAIOLO__PIZZA:
-			getPizza().clear();
-			getPizza().addAll((Collection<? extends Pizza>) newValue);
-			return;
+			case PizzeriaPackage.PIZZAIOLO__PIZZA:
+				getPizza().clear();
+				getPizza().addAll((Collection<? extends Pizza>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -108,9 +124,9 @@ public class PizzaioloImpl extends EmployeImpl implements Pizzaiolo {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZAIOLO__PIZZA:
-			getPizza().clear();
-			return;
+			case PizzeriaPackage.PIZZAIOLO__PIZZA:
+				getPizza().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -123,8 +139,8 @@ public class PizzaioloImpl extends EmployeImpl implements Pizzaiolo {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZAIOLO__PIZZA:
-			return pizza != null && !pizza.isEmpty();
+			case PizzeriaPackage.PIZZAIOLO__PIZZA:
+				return pizza != null && !pizza.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,8 +2,6 @@
  */
 package pizzeria;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getVehicule()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Vehicule extends EObject {
@@ -93,15 +91,25 @@ public interface Vehicule extends EObject {
 	void setEstFonctionnel(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Livreur</b></em>' containment reference list.
-	 * The list contents are of type {@link pizzeria.Livreur}.
+	 * Returns the value of the '<em><b>Livreur</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Livreur</em>' containment reference list.
+	 * @return the value of the '<em>Livreur</em>' containment reference.
+	 * @see #setLivreur(Livreur)
 	 * @see pizzeria.PizzeriaPackage#getVehicule_Livreur()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Livreur> getLivreur();
+	Livreur getLivreur();
+
+	/**
+	 * Sets the value of the '{@link pizzeria.Vehicule#getLivreur <em>Livreur</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Livreur</em>' containment reference.
+	 * @see #getLivreur()
+	 * @generated
+	 */
+	void setLivreur(Livreur value);
 
 } // Vehicule

@@ -2,6 +2,7 @@
  */
 package pizzeria;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link pizzeria.Client#getPrenom <em>Prenom</em>}</li>
  *   <li>{@link pizzeria.Client#getNumeroDeTelephone <em>Numero De Telephone</em>}</li>
  *   <li>{@link pizzeria.Client#getAdresse <em>Adresse</em>}</li>
- *   <li>{@link pizzeria.Client#getLivreur <em>Livreur</em>}</li>
+ *   <li>{@link pizzeria.Client#getCommande <em>Commande</em>}</li>
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getClient()
@@ -114,27 +115,15 @@ public interface Client extends EObject {
 	void setAdresse(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Livreur</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link pizzeria.Livreur#getClient <em>Client</em>}'.
+	 * Returns the value of the '<em><b>Commande</b></em>' containment reference list.
+	 * The list contents are of type {@link pizzeria.Commande}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Livreur</em>' reference.
-	 * @see #setLivreur(Livreur)
-	 * @see pizzeria.PizzeriaPackage#getClient_Livreur()
-	 * @see pizzeria.Livreur#getClient
-	 * @model opposite="client"
+	 * @return the value of the '<em>Commande</em>' containment reference list.
+	 * @see pizzeria.PizzeriaPackage#getClient_Commande()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Livreur getLivreur();
-
-	/**
-	 * Sets the value of the '{@link pizzeria.Client#getLivreur <em>Livreur</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Livreur</em>' reference.
-	 * @see #getLivreur()
-	 * @generated
-	 */
-	void setLivreur(Livreur value);
+	EList<Commande> getCommande();
 
 } // Client

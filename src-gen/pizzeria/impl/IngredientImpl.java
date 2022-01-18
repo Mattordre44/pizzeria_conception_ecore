@@ -94,8 +94,8 @@ public class IngredientImpl extends MinimalEObjectImpl.Container implements Ingr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.INGREDIENT__NOM:
-			return getNom();
+			case PizzeriaPackage.INGREDIENT__NOM:
+				return getNom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,9 +108,9 @@ public class IngredientImpl extends MinimalEObjectImpl.Container implements Ingr
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.INGREDIENT__NOM:
-			setNom((String) newValue);
-			return;
+			case PizzeriaPackage.INGREDIENT__NOM:
+				setNom((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -123,9 +123,9 @@ public class IngredientImpl extends MinimalEObjectImpl.Container implements Ingr
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.INGREDIENT__NOM:
-			setNom(NOM_EDEFAULT);
-			return;
+			case PizzeriaPackage.INGREDIENT__NOM:
+				setNom(NOM_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -138,8 +138,8 @@ public class IngredientImpl extends MinimalEObjectImpl.Container implements Ingr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.INGREDIENT__NOM:
-			return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
+			case PizzeriaPackage.INGREDIENT__NOM:
+				return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -151,8 +151,7 @@ public class IngredientImpl extends MinimalEObjectImpl.Container implements Ingr
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (nom: ");

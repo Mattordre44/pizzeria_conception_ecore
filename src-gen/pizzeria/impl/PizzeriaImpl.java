@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import pizzeria.Client;
 import pizzeria.Employe;
 import pizzeria.Pizzeria;
 import pizzeria.PizzeriaPackage;
@@ -37,6 +38,7 @@ import pizzeria.Vehicule;
  *   <li>{@link pizzeria.impl.PizzeriaImpl#getDateDeCreation <em>Date De Creation</em>}</li>
  *   <li>{@link pizzeria.impl.PizzeriaImpl#getVehicule <em>Vehicule</em>}</li>
  *   <li>{@link pizzeria.impl.PizzeriaImpl#getEmploye <em>Employe</em>}</li>
+ *   <li>{@link pizzeria.impl.PizzeriaImpl#getClient <em>Client</em>}</li>
  * </ul>
  *
  * @generated
@@ -123,6 +125,16 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	protected EList<Employe> employe;
 
 	/**
+	 * The cached value of the '{@link #getClient() <em>Client</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Client> client;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -159,8 +171,7 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 		String oldAdresse = adresse;
 		adresse = newAdresse;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZERIA__ADRESSE, oldAdresse,
-					adresse));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZERIA__ADRESSE, oldAdresse, adresse));
 	}
 
 	/**
@@ -202,8 +213,7 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 		Date oldDateDeCreation = dateDeCreation;
 		dateDeCreation = newDateDeCreation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZERIA__DATE_DE_CREATION,
-					oldDateDeCreation, dateDeCreation));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZERIA__DATE_DE_CREATION, oldDateDeCreation, dateDeCreation));
 	}
 
 	/**
@@ -235,13 +245,27 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Client> getClient() {
+		if (client == null) {
+			client = new EObjectContainmentEList<Client>(Client.class, this, PizzeriaPackage.PIZZERIA__CLIENT);
+		}
+		return client;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZERIA__VEHICULE:
-			return ((InternalEList<?>) getVehicule()).basicRemove(otherEnd, msgs);
-		case PizzeriaPackage.PIZZERIA__EMPLOYE:
-			return ((InternalEList<?>) getEmploye()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.PIZZERIA__VEHICULE:
+				return ((InternalEList<?>)getVehicule()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.PIZZERIA__EMPLOYE:
+				return ((InternalEList<?>)getEmploye()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.PIZZERIA__CLIENT:
+				return ((InternalEList<?>)getClient()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -254,16 +278,18 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZERIA__ADRESSE:
-			return getAdresse();
-		case PizzeriaPackage.PIZZERIA__NOM:
-			return getNom();
-		case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
-			return getDateDeCreation();
-		case PizzeriaPackage.PIZZERIA__VEHICULE:
-			return getVehicule();
-		case PizzeriaPackage.PIZZERIA__EMPLOYE:
-			return getEmploye();
+			case PizzeriaPackage.PIZZERIA__ADRESSE:
+				return getAdresse();
+			case PizzeriaPackage.PIZZERIA__NOM:
+				return getNom();
+			case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
+				return getDateDeCreation();
+			case PizzeriaPackage.PIZZERIA__VEHICULE:
+				return getVehicule();
+			case PizzeriaPackage.PIZZERIA__EMPLOYE:
+				return getEmploye();
+			case PizzeriaPackage.PIZZERIA__CLIENT:
+				return getClient();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,23 +303,27 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZERIA__ADRESSE:
-			setAdresse((String) newValue);
-			return;
-		case PizzeriaPackage.PIZZERIA__NOM:
-			setNom((String) newValue);
-			return;
-		case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
-			setDateDeCreation((Date) newValue);
-			return;
-		case PizzeriaPackage.PIZZERIA__VEHICULE:
-			getVehicule().clear();
-			getVehicule().addAll((Collection<? extends Vehicule>) newValue);
-			return;
-		case PizzeriaPackage.PIZZERIA__EMPLOYE:
-			getEmploye().clear();
-			getEmploye().addAll((Collection<? extends Employe>) newValue);
-			return;
+			case PizzeriaPackage.PIZZERIA__ADRESSE:
+				setAdresse((String)newValue);
+				return;
+			case PizzeriaPackage.PIZZERIA__NOM:
+				setNom((String)newValue);
+				return;
+			case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
+				setDateDeCreation((Date)newValue);
+				return;
+			case PizzeriaPackage.PIZZERIA__VEHICULE:
+				getVehicule().clear();
+				getVehicule().addAll((Collection<? extends Vehicule>)newValue);
+				return;
+			case PizzeriaPackage.PIZZERIA__EMPLOYE:
+				getEmploye().clear();
+				getEmploye().addAll((Collection<? extends Employe>)newValue);
+				return;
+			case PizzeriaPackage.PIZZERIA__CLIENT:
+				getClient().clear();
+				getClient().addAll((Collection<? extends Client>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -306,21 +336,24 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZERIA__ADRESSE:
-			setAdresse(ADRESSE_EDEFAULT);
-			return;
-		case PizzeriaPackage.PIZZERIA__NOM:
-			setNom(NOM_EDEFAULT);
-			return;
-		case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
-			setDateDeCreation(DATE_DE_CREATION_EDEFAULT);
-			return;
-		case PizzeriaPackage.PIZZERIA__VEHICULE:
-			getVehicule().clear();
-			return;
-		case PizzeriaPackage.PIZZERIA__EMPLOYE:
-			getEmploye().clear();
-			return;
+			case PizzeriaPackage.PIZZERIA__ADRESSE:
+				setAdresse(ADRESSE_EDEFAULT);
+				return;
+			case PizzeriaPackage.PIZZERIA__NOM:
+				setNom(NOM_EDEFAULT);
+				return;
+			case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
+				setDateDeCreation(DATE_DE_CREATION_EDEFAULT);
+				return;
+			case PizzeriaPackage.PIZZERIA__VEHICULE:
+				getVehicule().clear();
+				return;
+			case PizzeriaPackage.PIZZERIA__EMPLOYE:
+				getEmploye().clear();
+				return;
+			case PizzeriaPackage.PIZZERIA__CLIENT:
+				getClient().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -333,17 +366,18 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZERIA__ADRESSE:
-			return ADRESSE_EDEFAULT == null ? adresse != null : !ADRESSE_EDEFAULT.equals(adresse);
-		case PizzeriaPackage.PIZZERIA__NOM:
-			return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
-		case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
-			return DATE_DE_CREATION_EDEFAULT == null ? dateDeCreation != null
-					: !DATE_DE_CREATION_EDEFAULT.equals(dateDeCreation);
-		case PizzeriaPackage.PIZZERIA__VEHICULE:
-			return vehicule != null && !vehicule.isEmpty();
-		case PizzeriaPackage.PIZZERIA__EMPLOYE:
-			return employe != null && !employe.isEmpty();
+			case PizzeriaPackage.PIZZERIA__ADRESSE:
+				return ADRESSE_EDEFAULT == null ? adresse != null : !ADRESSE_EDEFAULT.equals(adresse);
+			case PizzeriaPackage.PIZZERIA__NOM:
+				return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
+			case PizzeriaPackage.PIZZERIA__DATE_DE_CREATION:
+				return DATE_DE_CREATION_EDEFAULT == null ? dateDeCreation != null : !DATE_DE_CREATION_EDEFAULT.equals(dateDeCreation);
+			case PizzeriaPackage.PIZZERIA__VEHICULE:
+				return vehicule != null && !vehicule.isEmpty();
+			case PizzeriaPackage.PIZZERIA__EMPLOYE:
+				return employe != null && !employe.isEmpty();
+			case PizzeriaPackage.PIZZERIA__CLIENT:
+				return client != null && !client.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -355,8 +389,7 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (adresse: ");

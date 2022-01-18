@@ -22,15 +22,6 @@ public interface PizzeriaFactory extends EFactory {
 	PizzeriaFactory eINSTANCE = pizzeria.impl.PizzeriaFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Employe</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Employe</em>'.
-	 * @generated
-	 */
-	Employe createEmploye();
-
-	/**
 	 * Returns a new object of class '<em>Pizzeria</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,15 +29,6 @@ public interface PizzeriaFactory extends EFactory {
 	 * @generated
 	 */
 	Pizzeria createPizzeria();
-
-	/**
-	 * Returns a new object of class '<em>Vehicule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Vehicule</em>'.
-	 * @generated
-	 */
-	Vehicule createVehicule();
 
 	/**
 	 * Returns a new object of class '<em>Pizzaiolo</em>'.
@@ -137,6 +119,15 @@ public interface PizzeriaFactory extends EFactory {
 	 * @generated
 	 */
 	Caissier createCaissier();
+
+	/**
+	 * Returns a new object of class '<em>Commande</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Commande</em>'.
+	 * @generated
+	 */
+	Commande createCommande();
 
 	/**
 	 * Returns the package supported by this factory.

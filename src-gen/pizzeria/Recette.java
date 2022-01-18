@@ -47,13 +47,13 @@ public interface Recette extends EObject {
 	void setDuree(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Ingredient</b></em>' reference list.
+	 * Returns the value of the '<em><b>Ingredient</b></em>' containment reference list.
 	 * The list contents are of type {@link pizzeria.Ingredient}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ingredient</em>' reference list.
+	 * @return the value of the '<em>Ingredient</em>' containment reference list.
 	 * @see pizzeria.PizzeriaPackage#getRecette_Ingredient()
-	 * @model required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Ingredient> getIngredient();

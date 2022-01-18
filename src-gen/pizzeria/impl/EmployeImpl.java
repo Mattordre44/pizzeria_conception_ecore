@@ -34,7 +34,7 @@ import pizzeria.PizzeriaPackage;
  *
  * @generated
  */
-public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe {
+public abstract class EmployeImpl extends MinimalEObjectImpl.Container implements Employe {
 	/**
 	 * The default value of the '{@link #getNom() <em>Nom</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -204,8 +204,7 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 		double oldSalaire = salaire;
 		salaire = newSalaire;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.EMPLOYE__SALAIRE, oldSalaire,
-					salaire));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.EMPLOYE__SALAIRE, oldSalaire, salaire));
 	}
 
 	/**
@@ -226,8 +225,7 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 		Date oldDateDeNaissance = dateDeNaissance;
 		dateDeNaissance = newDateDeNaissance;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE,
-					oldDateDeNaissance, dateDeNaissance));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE, oldDateDeNaissance, dateDeNaissance));
 	}
 
 	/**
@@ -237,12 +235,11 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	 */
 	public Manager getManager() {
 		if (manager != null && manager.eIsProxy()) {
-			InternalEObject oldManager = (InternalEObject) manager;
-			manager = (Manager) eResolveProxy(oldManager);
+			InternalEObject oldManager = (InternalEObject)manager;
+			manager = (Manager)eResolveProxy(oldManager);
 			if (manager != oldManager) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PizzeriaPackage.EMPLOYE__MANAGER,
-							oldManager, manager));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PizzeriaPackage.EMPLOYE__MANAGER, oldManager, manager));
 			}
 		}
 		return manager;
@@ -266,12 +263,8 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 		Manager oldManager = manager;
 		manager = newManager;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PizzeriaPackage.EMPLOYE__MANAGER, oldManager, newManager);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PizzeriaPackage.EMPLOYE__MANAGER, oldManager, newManager);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -285,17 +278,14 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 		if (newManager != manager) {
 			NotificationChain msgs = null;
 			if (manager != null)
-				msgs = ((InternalEObject) manager).eInverseRemove(this, PizzeriaPackage.MANAGER__EMPLOYE, Manager.class,
-						msgs);
+				msgs = ((InternalEObject)manager).eInverseRemove(this, PizzeriaPackage.MANAGER__EMPLOYE, Manager.class, msgs);
 			if (newManager != null)
-				msgs = ((InternalEObject) newManager).eInverseAdd(this, PizzeriaPackage.MANAGER__EMPLOYE, Manager.class,
-						msgs);
+				msgs = ((InternalEObject)newManager).eInverseAdd(this, PizzeriaPackage.MANAGER__EMPLOYE, Manager.class, msgs);
 			msgs = basicSetManager(newManager, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.EMPLOYE__MANAGER, newManager,
-					newManager));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.EMPLOYE__MANAGER, newManager, newManager));
 	}
 
 	/**
@@ -306,11 +296,10 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PizzeriaPackage.EMPLOYE__MANAGER:
-			if (manager != null)
-				msgs = ((InternalEObject) manager).eInverseRemove(this, PizzeriaPackage.MANAGER__EMPLOYE, Manager.class,
-						msgs);
-			return basicSetManager((Manager) otherEnd, msgs);
+			case PizzeriaPackage.EMPLOYE__MANAGER:
+				if (manager != null)
+					msgs = ((InternalEObject)manager).eInverseRemove(this, PizzeriaPackage.MANAGER__EMPLOYE, Manager.class, msgs);
+				return basicSetManager((Manager)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -323,8 +312,8 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PizzeriaPackage.EMPLOYE__MANAGER:
-			return basicSetManager(null, msgs);
+			case PizzeriaPackage.EMPLOYE__MANAGER:
+				return basicSetManager(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -337,18 +326,17 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.EMPLOYE__NOM:
-			return getNom();
-		case PizzeriaPackage.EMPLOYE__PRENOM:
-			return getPrenom();
-		case PizzeriaPackage.EMPLOYE__SALAIRE:
-			return getSalaire();
-		case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
-			return getDateDeNaissance();
-		case PizzeriaPackage.EMPLOYE__MANAGER:
-			if (resolve)
-				return getManager();
-			return basicGetManager();
+			case PizzeriaPackage.EMPLOYE__NOM:
+				return getNom();
+			case PizzeriaPackage.EMPLOYE__PRENOM:
+				return getPrenom();
+			case PizzeriaPackage.EMPLOYE__SALAIRE:
+				return getSalaire();
+			case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
+				return getDateDeNaissance();
+			case PizzeriaPackage.EMPLOYE__MANAGER:
+				if (resolve) return getManager();
+				return basicGetManager();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -361,21 +349,21 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.EMPLOYE__NOM:
-			setNom((String) newValue);
-			return;
-		case PizzeriaPackage.EMPLOYE__PRENOM:
-			setPrenom((String) newValue);
-			return;
-		case PizzeriaPackage.EMPLOYE__SALAIRE:
-			setSalaire((Double) newValue);
-			return;
-		case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
-			setDateDeNaissance((Date) newValue);
-			return;
-		case PizzeriaPackage.EMPLOYE__MANAGER:
-			setManager((Manager) newValue);
-			return;
+			case PizzeriaPackage.EMPLOYE__NOM:
+				setNom((String)newValue);
+				return;
+			case PizzeriaPackage.EMPLOYE__PRENOM:
+				setPrenom((String)newValue);
+				return;
+			case PizzeriaPackage.EMPLOYE__SALAIRE:
+				setSalaire((Double)newValue);
+				return;
+			case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
+				setDateDeNaissance((Date)newValue);
+				return;
+			case PizzeriaPackage.EMPLOYE__MANAGER:
+				setManager((Manager)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -388,21 +376,21 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.EMPLOYE__NOM:
-			setNom(NOM_EDEFAULT);
-			return;
-		case PizzeriaPackage.EMPLOYE__PRENOM:
-			setPrenom(PRENOM_EDEFAULT);
-			return;
-		case PizzeriaPackage.EMPLOYE__SALAIRE:
-			setSalaire(SALAIRE_EDEFAULT);
-			return;
-		case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
-			setDateDeNaissance(DATE_DE_NAISSANCE_EDEFAULT);
-			return;
-		case PizzeriaPackage.EMPLOYE__MANAGER:
-			setManager((Manager) null);
-			return;
+			case PizzeriaPackage.EMPLOYE__NOM:
+				setNom(NOM_EDEFAULT);
+				return;
+			case PizzeriaPackage.EMPLOYE__PRENOM:
+				setPrenom(PRENOM_EDEFAULT);
+				return;
+			case PizzeriaPackage.EMPLOYE__SALAIRE:
+				setSalaire(SALAIRE_EDEFAULT);
+				return;
+			case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
+				setDateDeNaissance(DATE_DE_NAISSANCE_EDEFAULT);
+				return;
+			case PizzeriaPackage.EMPLOYE__MANAGER:
+				setManager((Manager)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -415,17 +403,16 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.EMPLOYE__NOM:
-			return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
-		case PizzeriaPackage.EMPLOYE__PRENOM:
-			return PRENOM_EDEFAULT == null ? prenom != null : !PRENOM_EDEFAULT.equals(prenom);
-		case PizzeriaPackage.EMPLOYE__SALAIRE:
-			return salaire != SALAIRE_EDEFAULT;
-		case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
-			return DATE_DE_NAISSANCE_EDEFAULT == null ? dateDeNaissance != null
-					: !DATE_DE_NAISSANCE_EDEFAULT.equals(dateDeNaissance);
-		case PizzeriaPackage.EMPLOYE__MANAGER:
-			return manager != null;
+			case PizzeriaPackage.EMPLOYE__NOM:
+				return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
+			case PizzeriaPackage.EMPLOYE__PRENOM:
+				return PRENOM_EDEFAULT == null ? prenom != null : !PRENOM_EDEFAULT.equals(prenom);
+			case PizzeriaPackage.EMPLOYE__SALAIRE:
+				return salaire != SALAIRE_EDEFAULT;
+			case PizzeriaPackage.EMPLOYE__DATE_DE_NAISSANCE:
+				return DATE_DE_NAISSANCE_EDEFAULT == null ? dateDeNaissance != null : !DATE_DE_NAISSANCE_EDEFAULT.equals(dateDeNaissance);
+			case PizzeriaPackage.EMPLOYE__MANAGER:
+				return manager != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -437,8 +424,7 @@ public class EmployeImpl extends MinimalEObjectImpl.Container implements Employe
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (nom: ");

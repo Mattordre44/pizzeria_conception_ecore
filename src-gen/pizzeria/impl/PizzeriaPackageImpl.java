@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import pizzeria.Caissier;
 import pizzeria.Client;
+import pizzeria.Commande;
 import pizzeria.Employe;
 import pizzeria.Ingredient;
 import pizzeria.Livreur;
@@ -124,6 +125,13 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	private EClass caissierEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commandeEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -162,14 +170,11 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public static PizzeriaPackage init() {
-		if (isInited)
-			return (PizzeriaPackage) EPackage.Registry.INSTANCE.getEPackage(PizzeriaPackage.eNS_URI);
+		if (isInited) return (PizzeriaPackage)EPackage.Registry.INSTANCE.getEPackage(PizzeriaPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredPizzeriaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		PizzeriaPackageImpl thePizzeriaPackage = registeredPizzeriaPackage instanceof PizzeriaPackageImpl
-				? (PizzeriaPackageImpl) registeredPizzeriaPackage
-				: new PizzeriaPackageImpl();
+		PizzeriaPackageImpl thePizzeriaPackage = registeredPizzeriaPackage instanceof PizzeriaPackageImpl ? (PizzeriaPackageImpl)registeredPizzeriaPackage : new PizzeriaPackageImpl();
 
 		isInited = true;
 
@@ -202,7 +207,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getEmploye_Nom() {
-		return (EAttribute) employeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)employeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -211,7 +216,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getEmploye_Prenom() {
-		return (EAttribute) employeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)employeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -220,7 +225,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getEmploye_Salaire() {
-		return (EAttribute) employeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)employeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -229,7 +234,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getEmploye_DateDeNaissance() {
-		return (EAttribute) employeEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)employeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -238,7 +243,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getEmploye_Manager() {
-		return (EReference) employeEClass.getEStructuralFeatures().get(4);
+		return (EReference)employeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -256,7 +261,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getPizzeria_Adresse() {
-		return (EAttribute) pizzeriaEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)pizzeriaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -265,7 +270,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getPizzeria_Nom() {
-		return (EAttribute) pizzeriaEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)pizzeriaEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -274,7 +279,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getPizzeria_DateDeCreation() {
-		return (EAttribute) pizzeriaEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)pizzeriaEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -283,7 +288,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getPizzeria_Vehicule() {
-		return (EReference) pizzeriaEClass.getEStructuralFeatures().get(3);
+		return (EReference)pizzeriaEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -292,7 +297,16 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getPizzeria_Employe() {
-		return (EReference) pizzeriaEClass.getEStructuralFeatures().get(4);
+		return (EReference)pizzeriaEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPizzeria_Client() {
+		return (EReference)pizzeriaEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -310,7 +324,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getVehicule_Imattriculation() {
-		return (EAttribute) vehiculeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)vehiculeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -319,7 +333,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getVehicule_NiveauEssence() {
-		return (EAttribute) vehiculeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)vehiculeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -328,7 +342,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getVehicule_EstFonctionnel() {
-		return (EAttribute) vehiculeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)vehiculeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -337,7 +351,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getVehicule_Livreur() {
-		return (EReference) vehiculeEClass.getEStructuralFeatures().get(3);
+		return (EReference)vehiculeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -355,7 +369,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getPizzaiolo_Pizza() {
-		return (EReference) pizzaioloEClass.getEStructuralFeatures().get(0);
+		return (EReference)pizzaioloEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -372,8 +386,8 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLivreur_Client() {
-		return (EReference) livreurEClass.getEStructuralFeatures().get(0);
+	public EReference getLivreur_Commande() {
+		return (EReference)livreurEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -391,7 +405,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getManager_Employe() {
-		return (EReference) managerEClass.getEStructuralFeatures().get(0);
+		return (EReference)managerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -427,7 +441,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getPizza_PateMoelleuse() {
-		return (EAttribute) pizzaEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)pizzaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -436,16 +450,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getPizza_Recette() {
-		return (EReference) pizzaEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPizza_Livreur() {
-		return (EReference) pizzaEClass.getEStructuralFeatures().get(2);
+		return (EReference)pizzaEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -463,7 +468,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getRecette_Duree() {
-		return (EAttribute) recetteEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)recetteEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -472,7 +477,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EReference getRecette_Ingredient() {
-		return (EReference) recetteEClass.getEStructuralFeatures().get(1);
+		return (EReference)recetteEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -490,7 +495,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getIngredient_Nom() {
-		return (EAttribute) ingredientEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)ingredientEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -508,7 +513,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getClient_Nom() {
-		return (EAttribute) clientEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)clientEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -517,7 +522,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getClient_Prenom() {
-		return (EAttribute) clientEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)clientEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -526,7 +531,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getClient_NumeroDeTelephone() {
-		return (EAttribute) clientEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)clientEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -535,7 +540,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public EAttribute getClient_Adresse() {
-		return (EAttribute) clientEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)clientEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -543,8 +548,8 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getClient_Livreur() {
-		return (EReference) clientEClass.getEStructuralFeatures().get(4);
+	public EReference getClient_Commande() {
+		return (EReference)clientEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -561,8 +566,80 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCaissier_Commande() {
+		return (EReference)caissierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCommande() {
+		return commandeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommande_Date() {
+		return (EAttribute)commandeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommande_Montant() {
+		return (EAttribute)commandeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommande_Pizza() {
+		return (EReference)commandeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommande_Livreur() {
+		return (EReference)commandeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommande_Livrable() {
+		return (EAttribute)commandeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommande_Caissier() {
+		return (EReference)commandeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PizzeriaFactory getPizzeriaFactory() {
-		return (PizzeriaFactory) getEFactoryInstance();
+		return (PizzeriaFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -580,8 +657,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -598,6 +674,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 		createEAttribute(pizzeriaEClass, PIZZERIA__DATE_DE_CREATION);
 		createEReference(pizzeriaEClass, PIZZERIA__VEHICULE);
 		createEReference(pizzeriaEClass, PIZZERIA__EMPLOYE);
+		createEReference(pizzeriaEClass, PIZZERIA__CLIENT);
 
 		vehiculeEClass = createEClass(VEHICULE);
 		createEAttribute(vehiculeEClass, VEHICULE__IMATTRICULATION);
@@ -609,7 +686,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 		createEReference(pizzaioloEClass, PIZZAIOLO__PIZZA);
 
 		livreurEClass = createEClass(LIVREUR);
-		createEReference(livreurEClass, LIVREUR__CLIENT);
+		createEReference(livreurEClass, LIVREUR__COMMANDE);
 
 		managerEClass = createEClass(MANAGER);
 		createEReference(managerEClass, MANAGER__EMPLOYE);
@@ -621,7 +698,6 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 		pizzaEClass = createEClass(PIZZA);
 		createEAttribute(pizzaEClass, PIZZA__PATE_MOELLEUSE);
 		createEReference(pizzaEClass, PIZZA__RECETTE);
-		createEReference(pizzaEClass, PIZZA__LIVREUR);
 
 		recetteEClass = createEClass(RECETTE);
 		createEAttribute(recetteEClass, RECETTE__DUREE);
@@ -635,9 +711,18 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 		createEAttribute(clientEClass, CLIENT__PRENOM);
 		createEAttribute(clientEClass, CLIENT__NUMERO_DE_TELEPHONE);
 		createEAttribute(clientEClass, CLIENT__ADRESSE);
-		createEReference(clientEClass, CLIENT__LIVREUR);
+		createEReference(clientEClass, CLIENT__COMMANDE);
 
 		caissierEClass = createEClass(CAISSIER);
+		createEReference(caissierEClass, CAISSIER__COMMANDE);
+
+		commandeEClass = createEClass(COMMANDE);
+		createEAttribute(commandeEClass, COMMANDE__DATE);
+		createEAttribute(commandeEClass, COMMANDE__MONTANT);
+		createEReference(commandeEClass, COMMANDE__PIZZA);
+		createEReference(commandeEClass, COMMANDE__LIVREUR);
+		createEAttribute(commandeEClass, COMMANDE__LIVRABLE);
+		createEReference(commandeEClass, COMMANDE__CAISSIER);
 	}
 
 	/**
@@ -655,8 +740,7 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -677,109 +761,68 @@ public class PizzeriaPackageImpl extends EPackageImpl implements PizzeriaPackage
 		caissierEClass.getESuperTypes().add(this.getEmploye());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(employeEClass, Employe.class, "Employe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEmploye_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Employe.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEmploye_Prenom(), ecorePackage.getEString(), "prenom", null, 0, 1, Employe.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEmploye_Salaire(), ecorePackage.getEDouble(), "salaire", null, 0, 1, Employe.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEmploye_DateDeNaissance(), ecorePackage.getEDate(), "dateDeNaissance", null, 0, 1,
-				Employe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getEmploye_Manager(), this.getManager(), this.getManager_Employe(), "manager", null, 0, 1,
-				Employe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(employeEClass, Employe.class, "Employe", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEmploye_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Employe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmploye_Prenom(), ecorePackage.getEString(), "prenom", null, 0, 1, Employe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmploye_Salaire(), ecorePackage.getEDouble(), "salaire", null, 0, 1, Employe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmploye_DateDeNaissance(), ecorePackage.getEDate(), "dateDeNaissance", null, 0, 1, Employe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEmploye_Manager(), this.getManager(), this.getManager_Employe(), "manager", null, 0, 1, Employe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(pizzeriaEClass, Pizzeria.class, "Pizzeria", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPizzeria_Adresse(), ecorePackage.getEString(), "adresse", null, 0, 1, Pizzeria.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPizzeria_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Pizzeria.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPizzeria_DateDeCreation(), ecorePackage.getEDate(), "dateDeCreation", null, 0, 1,
-				Pizzeria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getPizzeria_Vehicule(), this.getVehicule(), null, "vehicule", null, 0, -1, Pizzeria.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPizzeria_Employe(), this.getEmploye(), null, "employe", null, 0, -1, Pizzeria.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(pizzeriaEClass, Pizzeria.class, "Pizzeria", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPizzeria_Adresse(), ecorePackage.getEString(), "adresse", null, 0, 1, Pizzeria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPizzeria_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Pizzeria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPizzeria_DateDeCreation(), ecorePackage.getEDate(), "dateDeCreation", null, 0, 1, Pizzeria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPizzeria_Vehicule(), this.getVehicule(), null, "vehicule", null, 0, -1, Pizzeria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPizzeria_Employe(), this.getEmploye(), null, "employe", null, 0, -1, Pizzeria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPizzeria_Client(), this.getClient(), null, "client", null, 0, -1, Pizzeria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(vehiculeEClass, Vehicule.class, "Vehicule", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVehicule_Imattriculation(), ecorePackage.getEString(), "imattriculation", null, 0, 1,
-				Vehicule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVehicule_NiveauEssence(), ecorePackage.getEDouble(), "niveauEssence", null, 0, 1,
-				Vehicule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVehicule_EstFonctionnel(), ecorePackage.getEBoolean(), "estFonctionnel", null, 0, 1,
-				Vehicule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getVehicule_Livreur(), this.getLivreur(), null, "livreur", null, 0, -1, Vehicule.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(vehiculeEClass, Vehicule.class, "Vehicule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVehicule_Imattriculation(), ecorePackage.getEString(), "imattriculation", null, 0, 1, Vehicule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVehicule_NiveauEssence(), ecorePackage.getEDouble(), "niveauEssence", null, 0, 1, Vehicule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVehicule_EstFonctionnel(), ecorePackage.getEBoolean(), "estFonctionnel", null, 0, 1, Vehicule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVehicule_Livreur(), this.getLivreur(), null, "livreur", null, 0, 1, Vehicule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(pizzaioloEClass, Pizzaiolo.class, "Pizzaiolo", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPizzaiolo_Pizza(), this.getPizza(), null, "pizza", null, 0, -1, Pizzaiolo.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(pizzaioloEClass, Pizzaiolo.class, "Pizzaiolo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPizzaiolo_Pizza(), this.getPizza(), null, "pizza", null, 0, -1, Pizzaiolo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(livreurEClass, Livreur.class, "Livreur", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLivreur_Client(), this.getClient(), this.getClient_Livreur(), "client", null, 0, -1,
-				Livreur.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLivreur_Commande(), this.getCommande(), this.getCommande_Livreur(), "commande", null, 0, -1, Livreur.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(managerEClass, Manager.class, "Manager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getManager_Employe(), this.getEmploye(), this.getEmploye_Manager(), "employe", null, 0, -1,
-				Manager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getManager_Employe(), this.getEmploye(), this.getEmploye_Manager(), "employe", null, 0, -1, Manager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(voitureEClass, Voiture.class, "Voiture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(scooterEClass, Scooter.class, "Scooter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pizzaEClass, Pizza.class, "Pizza", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPizza_PateMoelleuse(), ecorePackage.getEBoolean(), "pateMoelleuse", null, 0, 1, Pizza.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPizza_Recette(), this.getRecette(), null, "recette", null, 1, 1, Pizza.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getPizza_Livreur(), this.getLivreur(), null, "livreur", null, 0, 1, Pizza.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEAttribute(getPizza_PateMoelleuse(), ecorePackage.getEBoolean(), "pateMoelleuse", null, 0, 1, Pizza.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPizza_Recette(), this.getRecette(), null, "recette", null, 0, -1, Pizza.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(recetteEClass, Recette.class, "Recette", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRecette_Duree(), ecorePackage.getEString(), "duree", null, 0, 1, Recette.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRecette_Ingredient(), this.getIngredient(), null, "ingredient", null, 1, -1, Recette.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecette_Duree(), ecorePackage.getEString(), "duree", null, 0, 1, Recette.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecette_Ingredient(), this.getIngredient(), null, "ingredient", null, 0, -1, Recette.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(ingredientEClass, Ingredient.class, "Ingredient", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIngredient_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Ingredient.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ingredientEClass, Ingredient.class, "Ingredient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIngredient_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Ingredient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(clientEClass, Client.class, "Client", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClient_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Client.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClient_Prenom(), ecorePackage.getEString(), "prenom", null, 0, 1, Client.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClient_NumeroDeTelephone(), ecorePackage.getEString(), "numeroDeTelephone", null, 0, 1,
-				Client.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClient_Adresse(), ecorePackage.getEString(), "adresse", null, 0, 1, Client.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClient_Livreur(), this.getLivreur(), this.getLivreur_Client(), "livreur", null, 0, 1,
-				Client.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClient_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Client.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClient_Prenom(), ecorePackage.getEString(), "prenom", null, 0, 1, Client.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClient_NumeroDeTelephone(), ecorePackage.getEString(), "numeroDeTelephone", null, 0, 1, Client.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClient_Adresse(), ecorePackage.getEString(), "adresse", null, 0, 1, Client.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClient_Commande(), this.getCommande(), null, "commande", null, 0, -1, Client.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(caissierEClass, Caissier.class, "Caissier", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(caissierEClass, Caissier.class, "Caissier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCaissier_Commande(), this.getCommande(), this.getCommande_Caissier(), "commande", null, 0, -1, Caissier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commandeEClass, Commande.class, "Commande", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommande_Date(), ecorePackage.getEDate(), "date", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommande_Montant(), ecorePackage.getEDouble(), "montant", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommande_Pizza(), this.getPizza(), null, "pizza", null, 0, -1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommande_Livreur(), this.getLivreur(), this.getLivreur_Commande(), "livreur", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommande_Livrable(), ecorePackage.getEBoolean(), "livrable", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommande_Caissier(), this.getCaissier(), this.getCaissier_Commande(), "caissier", null, 0, 1, Commande.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

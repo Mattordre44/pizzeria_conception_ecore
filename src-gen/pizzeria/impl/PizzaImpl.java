@@ -2,15 +2,19 @@
  */
 package pizzeria.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import pizzeria.Livreur;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import pizzeria.Pizza;
 import pizzeria.PizzeriaPackage;
 import pizzeria.Recette;
@@ -25,7 +29,6 @@ import pizzeria.Recette;
  * <ul>
  *   <li>{@link pizzeria.impl.PizzaImpl#isPateMoelleuse <em>Pate Moelleuse</em>}</li>
  *   <li>{@link pizzeria.impl.PizzaImpl#getRecette <em>Recette</em>}</li>
- *   <li>{@link pizzeria.impl.PizzaImpl#getLivreur <em>Livreur</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,24 +55,14 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	protected boolean pateMoelleuse = PATE_MOELLEUSE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRecette() <em>Recette</em>}' reference.
+	 * The cached value of the '{@link #getRecette() <em>Recette</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRecette()
 	 * @generated
 	 * @ordered
 	 */
-	protected Recette recette;
-
-	/**
-	 * The cached value of the '{@link #getLivreur() <em>Livreur</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLivreur()
-	 * @generated
-	 * @ordered
-	 */
-	protected Livreur livreur;
+	protected EList<Recette> recette;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,8 +101,7 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 		boolean oldPateMoelleuse = pateMoelleuse;
 		pateMoelleuse = newPateMoelleuse;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZA__PATE_MOELLEUSE,
-					oldPateMoelleuse, pateMoelleuse));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZA__PATE_MOELLEUSE, oldPateMoelleuse, pateMoelleuse));
 	}
 
 	/**
@@ -117,15 +109,9 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Recette getRecette() {
-		if (recette != null && recette.eIsProxy()) {
-			InternalEObject oldRecette = (InternalEObject) recette;
-			recette = (Recette) eResolveProxy(oldRecette);
-			if (recette != oldRecette) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PizzeriaPackage.PIZZA__RECETTE,
-							oldRecette, recette));
-			}
+	public EList<Recette> getRecette() {
+		if (recette == null) {
+			recette = new EObjectContainmentEList<Recette>(Recette.class, this, PizzeriaPackage.PIZZA__RECETTE);
 		}
 		return recette;
 	}
@@ -135,59 +121,13 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Recette basicGetRecette() {
-		return recette;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRecette(Recette newRecette) {
-		Recette oldRecette = recette;
-		recette = newRecette;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZA__RECETTE, oldRecette, recette));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Livreur getLivreur() {
-		if (livreur != null && livreur.eIsProxy()) {
-			InternalEObject oldLivreur = (InternalEObject) livreur;
-			livreur = (Livreur) eResolveProxy(oldLivreur);
-			if (livreur != oldLivreur) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PizzeriaPackage.PIZZA__LIVREUR,
-							oldLivreur, livreur));
-			}
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PizzeriaPackage.PIZZA__RECETTE:
+				return ((InternalEList<?>)getRecette()).basicRemove(otherEnd, msgs);
 		}
-		return livreur;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Livreur basicGetLivreur() {
-		return livreur;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLivreur(Livreur newLivreur) {
-		Livreur oldLivreur = livreur;
-		livreur = newLivreur;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZA__LIVREUR, oldLivreur, livreur));
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -198,16 +138,10 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
-			return isPateMoelleuse();
-		case PizzeriaPackage.PIZZA__RECETTE:
-			if (resolve)
+			case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
+				return isPateMoelleuse();
+			case PizzeriaPackage.PIZZA__RECETTE:
 				return getRecette();
-			return basicGetRecette();
-		case PizzeriaPackage.PIZZA__LIVREUR:
-			if (resolve)
-				return getLivreur();
-			return basicGetLivreur();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,18 +151,17 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
-			setPateMoelleuse((Boolean) newValue);
-			return;
-		case PizzeriaPackage.PIZZA__RECETTE:
-			setRecette((Recette) newValue);
-			return;
-		case PizzeriaPackage.PIZZA__LIVREUR:
-			setLivreur((Livreur) newValue);
-			return;
+			case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
+				setPateMoelleuse((Boolean)newValue);
+				return;
+			case PizzeriaPackage.PIZZA__RECETTE:
+				getRecette().clear();
+				getRecette().addAll((Collection<? extends Recette>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -241,15 +174,12 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
-			setPateMoelleuse(PATE_MOELLEUSE_EDEFAULT);
-			return;
-		case PizzeriaPackage.PIZZA__RECETTE:
-			setRecette((Recette) null);
-			return;
-		case PizzeriaPackage.PIZZA__LIVREUR:
-			setLivreur((Livreur) null);
-			return;
+			case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
+				setPateMoelleuse(PATE_MOELLEUSE_EDEFAULT);
+				return;
+			case PizzeriaPackage.PIZZA__RECETTE:
+				getRecette().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -262,12 +192,10 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
-			return pateMoelleuse != PATE_MOELLEUSE_EDEFAULT;
-		case PizzeriaPackage.PIZZA__RECETTE:
-			return recette != null;
-		case PizzeriaPackage.PIZZA__LIVREUR:
-			return livreur != null;
+			case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
+				return pateMoelleuse != PATE_MOELLEUSE_EDEFAULT;
+			case PizzeriaPackage.PIZZA__RECETTE:
+				return recette != null && !recette.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -279,8 +207,7 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (pateMoelleuse: ");

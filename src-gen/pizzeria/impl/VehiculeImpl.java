@@ -2,22 +2,13 @@
  */
 package pizzeria.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import pizzeria.Livreur;
 import pizzeria.PizzeriaPackage;
 import pizzeria.Vehicule;
@@ -38,7 +29,7 @@ import pizzeria.Vehicule;
  *
  * @generated
  */
-public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicule {
+public abstract class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicule {
 	/**
 	 * The default value of the '{@link #getImattriculation() <em>Imattriculation</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -100,14 +91,14 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	protected boolean estFonctionnel = EST_FONCTIONNEL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLivreur() <em>Livreur</em>}' containment reference list.
+	 * The cached value of the '{@link #getLivreur() <em>Livreur</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLivreur()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Livreur> livreur;
+	protected Livreur livreur;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,8 +137,7 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 		String oldImattriculation = imattriculation;
 		imattriculation = newImattriculation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__IMATTRICULATION,
-					oldImattriculation, imattriculation));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__IMATTRICULATION, oldImattriculation, imattriculation));
 	}
 
 	/**
@@ -168,8 +158,7 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 		double oldNiveauEssence = niveauEssence;
 		niveauEssence = newNiveauEssence;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE,
-					oldNiveauEssence, niveauEssence));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE, oldNiveauEssence, niveauEssence));
 	}
 
 	/**
@@ -190,8 +179,7 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 		boolean oldEstFonctionnel = estFonctionnel;
 		estFonctionnel = newEstFonctionnel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__EST_FONCTIONNEL,
-					oldEstFonctionnel, estFonctionnel));
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__EST_FONCTIONNEL, oldEstFonctionnel, estFonctionnel));
 	}
 
 	/**
@@ -199,11 +187,42 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Livreur> getLivreur() {
-		if (livreur == null) {
-			livreur = new EObjectContainmentEList<Livreur>(Livreur.class, this, PizzeriaPackage.VEHICULE__LIVREUR);
-		}
+	public Livreur getLivreur() {
 		return livreur;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLivreur(Livreur newLivreur, NotificationChain msgs) {
+		Livreur oldLivreur = livreur;
+		livreur = newLivreur;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__LIVREUR, oldLivreur, newLivreur);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLivreur(Livreur newLivreur) {
+		if (newLivreur != livreur) {
+			NotificationChain msgs = null;
+			if (livreur != null)
+				msgs = ((InternalEObject)livreur).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PizzeriaPackage.VEHICULE__LIVREUR, null, msgs);
+			if (newLivreur != null)
+				msgs = ((InternalEObject)newLivreur).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PizzeriaPackage.VEHICULE__LIVREUR, null, msgs);
+			msgs = basicSetLivreur(newLivreur, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.VEHICULE__LIVREUR, newLivreur, newLivreur));
 	}
 
 	/**
@@ -214,8 +233,8 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PizzeriaPackage.VEHICULE__LIVREUR:
-			return ((InternalEList<?>) getLivreur()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.VEHICULE__LIVREUR:
+				return basicSetLivreur(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -228,14 +247,14 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.VEHICULE__IMATTRICULATION:
-			return getImattriculation();
-		case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
-			return getNiveauEssence();
-		case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
-			return isEstFonctionnel();
-		case PizzeriaPackage.VEHICULE__LIVREUR:
-			return getLivreur();
+			case PizzeriaPackage.VEHICULE__IMATTRICULATION:
+				return getImattriculation();
+			case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
+				return getNiveauEssence();
+			case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
+				return isEstFonctionnel();
+			case PizzeriaPackage.VEHICULE__LIVREUR:
+				return getLivreur();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,19 +268,18 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.VEHICULE__IMATTRICULATION:
-			setImattriculation((String) newValue);
-			return;
-		case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
-			setNiveauEssence((Double) newValue);
-			return;
-		case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
-			setEstFonctionnel((Boolean) newValue);
-			return;
-		case PizzeriaPackage.VEHICULE__LIVREUR:
-			getLivreur().clear();
-			getLivreur().addAll((Collection<? extends Livreur>) newValue);
-			return;
+			case PizzeriaPackage.VEHICULE__IMATTRICULATION:
+				setImattriculation((String)newValue);
+				return;
+			case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
+				setNiveauEssence((Double)newValue);
+				return;
+			case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
+				setEstFonctionnel((Boolean)newValue);
+				return;
+			case PizzeriaPackage.VEHICULE__LIVREUR:
+				setLivreur((Livreur)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -274,18 +292,18 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.VEHICULE__IMATTRICULATION:
-			setImattriculation(IMATTRICULATION_EDEFAULT);
-			return;
-		case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
-			setNiveauEssence(NIVEAU_ESSENCE_EDEFAULT);
-			return;
-		case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
-			setEstFonctionnel(EST_FONCTIONNEL_EDEFAULT);
-			return;
-		case PizzeriaPackage.VEHICULE__LIVREUR:
-			getLivreur().clear();
-			return;
+			case PizzeriaPackage.VEHICULE__IMATTRICULATION:
+				setImattriculation(IMATTRICULATION_EDEFAULT);
+				return;
+			case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
+				setNiveauEssence(NIVEAU_ESSENCE_EDEFAULT);
+				return;
+			case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
+				setEstFonctionnel(EST_FONCTIONNEL_EDEFAULT);
+				return;
+			case PizzeriaPackage.VEHICULE__LIVREUR:
+				setLivreur((Livreur)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -298,15 +316,14 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.VEHICULE__IMATTRICULATION:
-			return IMATTRICULATION_EDEFAULT == null ? imattriculation != null
-					: !IMATTRICULATION_EDEFAULT.equals(imattriculation);
-		case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
-			return niveauEssence != NIVEAU_ESSENCE_EDEFAULT;
-		case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
-			return estFonctionnel != EST_FONCTIONNEL_EDEFAULT;
-		case PizzeriaPackage.VEHICULE__LIVREUR:
-			return livreur != null && !livreur.isEmpty();
+			case PizzeriaPackage.VEHICULE__IMATTRICULATION:
+				return IMATTRICULATION_EDEFAULT == null ? imattriculation != null : !IMATTRICULATION_EDEFAULT.equals(imattriculation);
+			case PizzeriaPackage.VEHICULE__NIVEAU_ESSENCE:
+				return niveauEssence != NIVEAU_ESSENCE_EDEFAULT;
+			case PizzeriaPackage.VEHICULE__EST_FONCTIONNEL:
+				return estFonctionnel != EST_FONCTIONNEL_EDEFAULT;
+			case PizzeriaPackage.VEHICULE__LIVREUR:
+				return livreur != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -318,8 +335,7 @@ public class VehiculeImpl extends MinimalEObjectImpl.Container implements Vehicu
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (imattriculation: ");

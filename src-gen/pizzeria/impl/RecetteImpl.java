@@ -6,15 +6,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import pizzeria.Ingredient;
 import pizzeria.PizzeriaPackage;
 import pizzeria.Recette;
@@ -55,7 +57,7 @@ public class RecetteImpl extends MinimalEObjectImpl.Container implements Recette
 	protected String duree = DUREE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' reference list.
+	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIngredient()
@@ -111,8 +113,7 @@ public class RecetteImpl extends MinimalEObjectImpl.Container implements Recette
 	 */
 	public EList<Ingredient> getIngredient() {
 		if (ingredient == null) {
-			ingredient = new EObjectResolvingEList<Ingredient>(Ingredient.class, this,
-					PizzeriaPackage.RECETTE__INGREDIENT);
+			ingredient = new EObjectContainmentEList<Ingredient>(Ingredient.class, this, PizzeriaPackage.RECETTE__INGREDIENT);
 		}
 		return ingredient;
 	}
@@ -123,12 +124,26 @@ public class RecetteImpl extends MinimalEObjectImpl.Container implements Recette
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PizzeriaPackage.RECETTE__INGREDIENT:
+				return ((InternalEList<?>)getIngredient()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.RECETTE__DUREE:
-			return getDuree();
-		case PizzeriaPackage.RECETTE__INGREDIENT:
-			return getIngredient();
+			case PizzeriaPackage.RECETTE__DUREE:
+				return getDuree();
+			case PizzeriaPackage.RECETTE__INGREDIENT:
+				return getIngredient();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,13 +157,13 @@ public class RecetteImpl extends MinimalEObjectImpl.Container implements Recette
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.RECETTE__DUREE:
-			setDuree((String) newValue);
-			return;
-		case PizzeriaPackage.RECETTE__INGREDIENT:
-			getIngredient().clear();
-			getIngredient().addAll((Collection<? extends Ingredient>) newValue);
-			return;
+			case PizzeriaPackage.RECETTE__DUREE:
+				setDuree((String)newValue);
+				return;
+			case PizzeriaPackage.RECETTE__INGREDIENT:
+				getIngredient().clear();
+				getIngredient().addAll((Collection<? extends Ingredient>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -161,12 +176,12 @@ public class RecetteImpl extends MinimalEObjectImpl.Container implements Recette
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.RECETTE__DUREE:
-			setDuree(DUREE_EDEFAULT);
-			return;
-		case PizzeriaPackage.RECETTE__INGREDIENT:
-			getIngredient().clear();
-			return;
+			case PizzeriaPackage.RECETTE__DUREE:
+				setDuree(DUREE_EDEFAULT);
+				return;
+			case PizzeriaPackage.RECETTE__INGREDIENT:
+				getIngredient().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -179,10 +194,10 @@ public class RecetteImpl extends MinimalEObjectImpl.Container implements Recette
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.RECETTE__DUREE:
-			return DUREE_EDEFAULT == null ? duree != null : !DUREE_EDEFAULT.equals(duree);
-		case PizzeriaPackage.RECETTE__INGREDIENT:
-			return ingredient != null && !ingredient.isEmpty();
+			case PizzeriaPackage.RECETTE__DUREE:
+				return DUREE_EDEFAULT == null ? duree != null : !DUREE_EDEFAULT.equals(duree);
+			case PizzeriaPackage.RECETTE__INGREDIENT:
+				return ingredient != null && !ingredient.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -194,8 +209,7 @@ public class RecetteImpl extends MinimalEObjectImpl.Container implements Recette
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (duree: ");

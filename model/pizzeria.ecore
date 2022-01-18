@@ -17,17 +17,19 @@
         eType="#//Vehicule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="employe" upperBound="-1"
         eType="#//Employe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="client" upperBound="-1"
+        eType="#//Client" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Vehicule">
+  <eClassifiers xsi:type="ecore:EClass" name="Vehicule" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="imattriculation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="niveauEssence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="estFonctionnel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" upperBound="-1"
-        eType="#//Livreur" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" eType="#//Livreur"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pizzaiolo" eSuperTypes="#//Employe">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizza" upperBound="-1"
-        eType="#//Pizza"/>
+        eType="#//Pizza" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Livreur" eSuperTypes="#//Employe">
     <eStructuralFeatures xsi:type="ecore:EReference" name="commande" upperBound="-1"
@@ -58,7 +60,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroDeTelephone" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="adresse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commande" upperBound="-1"
-        eType="#//Commande" eOpposite="#//Commande/client"/>
+        eType="#//Commande" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Caissier" eSuperTypes="#//Employe">
     <eStructuralFeatures xsi:type="ecore:EReference" name="commande" upperBound="-1"
@@ -69,8 +71,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="montant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizza" upperBound="-1"
         eType="#//Pizza"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="client" lowerBound="1"
-        eType="#//Client" eOpposite="#//Client/commande"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" eType="#//Livreur"
         eOpposite="#//Livreur/commande"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="livrable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

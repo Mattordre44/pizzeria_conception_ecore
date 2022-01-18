@@ -54,7 +54,7 @@ public class PizzeriaAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -66,76 +66,67 @@ public class PizzeriaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected PizzeriaSwitch<Adapter> modelSwitch = new PizzeriaSwitch<Adapter>() {
-		@Override
-		public Adapter caseEmploye(Employe object) {
-			return createEmployeAdapter();
-		}
-
-		@Override
-		public Adapter casePizzeria(Pizzeria object) {
-			return createPizzeriaAdapter();
-		}
-
-		@Override
-		public Adapter caseVehicule(Vehicule object) {
-			return createVehiculeAdapter();
-		}
-
-		@Override
-		public Adapter casePizzaiolo(Pizzaiolo object) {
-			return createPizzaioloAdapter();
-		}
-
-		@Override
-		public Adapter caseLivreur(Livreur object) {
-			return createLivreurAdapter();
-		}
-
-		@Override
-		public Adapter caseManager(Manager object) {
-			return createManagerAdapter();
-		}
-
-		@Override
-		public Adapter caseVoiture(Voiture object) {
-			return createVoitureAdapter();
-		}
-
-		@Override
-		public Adapter caseScooter(Scooter object) {
-			return createScooterAdapter();
-		}
-
-		@Override
-		public Adapter casePizza(Pizza object) {
-			return createPizzaAdapter();
-		}
-
-		@Override
-		public Adapter caseRecette(Recette object) {
-			return createRecetteAdapter();
-		}
-
-		@Override
-		public Adapter caseIngredient(Ingredient object) {
-			return createIngredientAdapter();
-		}
-
-		@Override
-		public Adapter caseClient(Client object) {
-			return createClientAdapter();
-		}
-
-		@Override
-		public Adapter caseCaissier(Caissier object) {
-			return createCaissierAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+			@Override
+			public Adapter caseEmploye(Employe object) {
+				return createEmployeAdapter();
+			}
+			@Override
+			public Adapter casePizzeria(Pizzeria object) {
+				return createPizzeriaAdapter();
+			}
+			@Override
+			public Adapter caseVehicule(Vehicule object) {
+				return createVehiculeAdapter();
+			}
+			@Override
+			public Adapter casePizzaiolo(Pizzaiolo object) {
+				return createPizzaioloAdapter();
+			}
+			@Override
+			public Adapter caseLivreur(Livreur object) {
+				return createLivreurAdapter();
+			}
+			@Override
+			public Adapter caseManager(Manager object) {
+				return createManagerAdapter();
+			}
+			@Override
+			public Adapter caseVoiture(Voiture object) {
+				return createVoitureAdapter();
+			}
+			@Override
+			public Adapter caseScooter(Scooter object) {
+				return createScooterAdapter();
+			}
+			@Override
+			public Adapter casePizza(Pizza object) {
+				return createPizzaAdapter();
+			}
+			@Override
+			public Adapter caseRecette(Recette object) {
+				return createRecetteAdapter();
+			}
+			@Override
+			public Adapter caseIngredient(Ingredient object) {
+				return createIngredientAdapter();
+			}
+			@Override
+			public Adapter caseClient(Client object) {
+				return createClientAdapter();
+			}
+			@Override
+			public Adapter caseCaissier(Caissier object) {
+				return createCaissierAdapter();
+			}
+			@Override
+			public Adapter caseCommande(Commande object) {
+				return createCommandeAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -147,7 +138,7 @@ public class PizzeriaAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
 
 	/**
@@ -329,6 +320,20 @@ public class PizzeriaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCaissierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link pizzeria.Commande <em>Commande</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see pizzeria.Commande
+	 * @generated
+	 */
+	public Adapter createCommandeAdapter() {
 		return null;
 	}
 

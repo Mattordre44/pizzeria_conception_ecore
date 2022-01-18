@@ -27,12 +27,12 @@ public class PizzeriaFactoryImpl extends EFactoryImpl implements PizzeriaFactory
 	 */
 	public static PizzeriaFactory init() {
 		try {
-			PizzeriaFactory thePizzeriaFactory = (PizzeriaFactory) EPackage.Registry.INSTANCE
-					.getEFactory(PizzeriaPackage.eNS_URI);
+			PizzeriaFactory thePizzeriaFactory = (PizzeriaFactory)EPackage.Registry.INSTANCE.getEFactory(PizzeriaPackage.eNS_URI);
 			if (thePizzeriaFactory != null) {
 				return thePizzeriaFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PizzeriaFactoryImpl();
@@ -56,45 +56,21 @@ public class PizzeriaFactoryImpl extends EFactoryImpl implements PizzeriaFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case PizzeriaPackage.EMPLOYE:
-			return createEmploye();
-		case PizzeriaPackage.PIZZERIA:
-			return createPizzeria();
-		case PizzeriaPackage.VEHICULE:
-			return createVehicule();
-		case PizzeriaPackage.PIZZAIOLO:
-			return createPizzaiolo();
-		case PizzeriaPackage.LIVREUR:
-			return createLivreur();
-		case PizzeriaPackage.MANAGER:
-			return createManager();
-		case PizzeriaPackage.VOITURE:
-			return createVoiture();
-		case PizzeriaPackage.SCOOTER:
-			return createScooter();
-		case PizzeriaPackage.PIZZA:
-			return createPizza();
-		case PizzeriaPackage.RECETTE:
-			return createRecette();
-		case PizzeriaPackage.INGREDIENT:
-			return createIngredient();
-		case PizzeriaPackage.CLIENT:
-			return createClient();
-		case PizzeriaPackage.CAISSIER:
-			return createCaissier();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case PizzeriaPackage.PIZZERIA: return createPizzeria();
+			case PizzeriaPackage.PIZZAIOLO: return createPizzaiolo();
+			case PizzeriaPackage.LIVREUR: return createLivreur();
+			case PizzeriaPackage.MANAGER: return createManager();
+			case PizzeriaPackage.VOITURE: return createVoiture();
+			case PizzeriaPackage.SCOOTER: return createScooter();
+			case PizzeriaPackage.PIZZA: return createPizza();
+			case PizzeriaPackage.RECETTE: return createRecette();
+			case PizzeriaPackage.INGREDIENT: return createIngredient();
+			case PizzeriaPackage.CLIENT: return createClient();
+			case PizzeriaPackage.CAISSIER: return createCaissier();
+			case PizzeriaPackage.COMMANDE: return createCommande();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Employe createEmploye() {
-		EmployeImpl employe = new EmployeImpl();
-		return employe;
 	}
 
 	/**
@@ -105,16 +81,6 @@ public class PizzeriaFactoryImpl extends EFactoryImpl implements PizzeriaFactory
 	public Pizzeria createPizzeria() {
 		PizzeriaImpl pizzeria = new PizzeriaImpl();
 		return pizzeria;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Vehicule createVehicule() {
-		VehiculeImpl vehicule = new VehiculeImpl();
-		return vehicule;
 	}
 
 	/**
@@ -222,8 +188,18 @@ public class PizzeriaFactoryImpl extends EFactoryImpl implements PizzeriaFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Commande createCommande() {
+		CommandeImpl commande = new CommandeImpl();
+		return commande;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PizzeriaPackage getPizzeriaPackage() {
-		return (PizzeriaPackage) getEPackage();
+		return (PizzeriaPackage)getEPackage();
 	}
 
 	/**

@@ -22,13 +22,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Pizzaiolo extends Employe {
 	/**
-	 * Returns the value of the '<em><b>Pizza</b></em>' reference list.
+	 * Returns the value of the '<em><b>Pizza</b></em>' containment reference list.
 	 * The list contents are of type {@link pizzeria.Pizza}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pizza</em>' reference list.
+	 * @return the value of the '<em>Pizza</em>' containment reference list.
 	 * @see pizzeria.PizzeriaPackage#getPizzaiolo_Pizza()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Pizza> getPizza();

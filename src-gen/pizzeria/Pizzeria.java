@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link pizzeria.Pizzeria#getDateDeCreation <em>Date De Creation</em>}</li>
  *   <li>{@link pizzeria.Pizzeria#getVehicule <em>Vehicule</em>}</li>
  *   <li>{@link pizzeria.Pizzeria#getEmploye <em>Employe</em>}</li>
+ *   <li>{@link pizzeria.Pizzeria#getClient <em>Client</em>}</li>
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getPizzeria()
@@ -118,5 +119,17 @@ public interface Pizzeria extends EObject {
 	 * @generated
 	 */
 	EList<Employe> getEmploye();
+
+	/**
+	 * Returns the value of the '<em><b>Client</b></em>' containment reference list.
+	 * The list contents are of type {@link pizzeria.Client}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Client</em>' containment reference list.
+	 * @see pizzeria.PizzeriaPackage#getPizzeria_Client()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Client> getClient();
 
 } // Pizzeria

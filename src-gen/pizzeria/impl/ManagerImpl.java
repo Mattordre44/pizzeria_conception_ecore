@@ -68,8 +68,7 @@ public class ManagerImpl extends EmployeImpl implements Manager {
 	 */
 	public EList<Employe> getEmploye() {
 		if (employe == null) {
-			employe = new EObjectWithInverseResolvingEList<Employe>(Employe.class, this,
-					PizzeriaPackage.MANAGER__EMPLOYE, PizzeriaPackage.EMPLOYE__MANAGER);
+			employe = new EObjectWithInverseResolvingEList<Employe>(Employe.class, this, PizzeriaPackage.MANAGER__EMPLOYE, PizzeriaPackage.EMPLOYE__MANAGER);
 		}
 		return employe;
 	}
@@ -83,8 +82,8 @@ public class ManagerImpl extends EmployeImpl implements Manager {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PizzeriaPackage.MANAGER__EMPLOYE:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEmploye()).basicAdd(otherEnd, msgs);
+			case PizzeriaPackage.MANAGER__EMPLOYE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEmploye()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -97,8 +96,8 @@ public class ManagerImpl extends EmployeImpl implements Manager {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PizzeriaPackage.MANAGER__EMPLOYE:
-			return ((InternalEList<?>) getEmploye()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.MANAGER__EMPLOYE:
+				return ((InternalEList<?>)getEmploye()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,8 +110,8 @@ public class ManagerImpl extends EmployeImpl implements Manager {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PizzeriaPackage.MANAGER__EMPLOYE:
-			return getEmploye();
+			case PizzeriaPackage.MANAGER__EMPLOYE:
+				return getEmploye();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,10 +125,10 @@ public class ManagerImpl extends EmployeImpl implements Manager {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PizzeriaPackage.MANAGER__EMPLOYE:
-			getEmploye().clear();
-			getEmploye().addAll((Collection<? extends Employe>) newValue);
-			return;
+			case PizzeriaPackage.MANAGER__EMPLOYE:
+				getEmploye().clear();
+				getEmploye().addAll((Collection<? extends Employe>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -142,9 +141,9 @@ public class ManagerImpl extends EmployeImpl implements Manager {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.MANAGER__EMPLOYE:
-			getEmploye().clear();
-			return;
+			case PizzeriaPackage.MANAGER__EMPLOYE:
+				getEmploye().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -157,8 +156,8 @@ public class ManagerImpl extends EmployeImpl implements Manager {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PizzeriaPackage.MANAGER__EMPLOYE:
-			return employe != null && !employe.isEmpty();
+			case PizzeriaPackage.MANAGER__EMPLOYE:
+				return employe != null && !employe.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
