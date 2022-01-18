@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Pizzeria/src-gen" creationIcons="false" editDirectory="/Pizzeria.edit/src-gen"
+    editorDirectory="/Pizzeria.editor/src-gen" modelPluginID="Pizzeria" modelName="Pizzeria"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>pizzeria.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Pizzeria" disposableProviderFactory="true" ecorePackage="pizzeria.ecore#/">
+    <genClasses ecoreClass="pizzeria.ecore#//Employe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Employe/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Employe/prenom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Employe/salaire"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Employe/dateDeNaissance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Employe/manager"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Pizzeria">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Pizzeria/adresse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Pizzeria/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Pizzeria/dateDeCreation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Pizzeria/vehicule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Pizzeria/employe"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Vehicule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Vehicule/imattriculation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Vehicule/niveauEssence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Vehicule/estFonctionnel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Vehicule/livreur"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Pizzaiolo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Pizzaiolo/pizza"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Livreur">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Livreur/client"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Manager">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Manager/employe"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Voiture"/>
+    <genClasses ecoreClass="pizzeria.ecore#//Scooter"/>
+    <genClasses ecoreClass="pizzeria.ecore#//Pizza">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Pizza/pateMoelleuse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Pizza/recette"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Pizza/livreur"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Recette">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Recette/duree"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Recette/ingredient"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Ingredient">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Ingredient/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Client">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Client/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Client/prenom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Client/numeroDeTelephone"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Client/adresse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Client/livreur"/>
+    </genClasses>
+    <genClasses ecoreClass="pizzeria.ecore#//Caissier"/>
+  </genPackages>
+</genmodel:GenModel>

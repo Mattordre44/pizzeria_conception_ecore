@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pizzeria" nsURI="http://www.example.org/pizzeria" nsPrefix="pizzeria">
+  <eClassifiers xsi:type="ecore:EClass" name="Employe">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prenom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salaire" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateDeNaissance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="#//Manager"
+        eOpposite="#//Manager/employe"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pizzeria">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adresse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateDeCreation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicule" upperBound="-1"
+        eType="#//Vehicule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employe" upperBound="-1"
+        eType="#//Employe" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vehicule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imattriculation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="niveauEssence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estFonctionnel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" upperBound="-1"
+        eType="#//Livreur" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pizzaiolo" eSuperTypes="#//Employe">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pizza" upperBound="-1"
+        eType="#//Pizza"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Livreur" eSuperTypes="#//Employe">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="client" upperBound="-1"
+        eType="#//Client" eOpposite="#//Client/livreur"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="#//Employe">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employe" upperBound="-1"
+        eType="#//Employe" eOpposite="#//Employe/manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Voiture" eSuperTypes="#//Vehicule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scooter" eSuperTypes="#//Vehicule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pizza">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pateMoelleuse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recette" lowerBound="1"
+        eType="#//Recette"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" eType="#//Livreur"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Recette">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duree" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingredient" lowerBound="1"
+        upperBound="-1" eType="#//Ingredient"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ingredient">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Client">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prenom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeroDeTelephone" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adresse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="livreur" eType="#//Livreur"
+        eOpposite="#//Livreur/client"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Caissier" eSuperTypes="#//Employe"/>
+</ecore:EPackage>
