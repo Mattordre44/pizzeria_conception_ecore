@@ -5,7 +5,7 @@
     <semanticResources>pizzeria.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_pvrcwHVOEey6vIrxcao1Rw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kQjlwHh8Eey2yOt2m2jV4g" name="pizzeria class diagram" repPath="#_kQfUUHh8Eey2yOt2m2jV4g" changeId="506dc24e-3baf-470b-a25d-f2aa5cfe473f">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kQjlwHh8Eey2yOt2m2jV4g" name="pizzeria class diagram" repPath="#_kQfUUHh8Eey2yOt2m2jV4g" changeId="3f84211f-0c30-432c-8842-dd6e4e940de1">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="pizzeria.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -511,8 +511,9 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_lEN3UHh8Eey2yOt2m2jV4g" name="Employe" tooltipText="" outgoingEdges="_lFPyEHh8Eey2yOt2m2jV4g" incomingEdges="_lE_6c3h8Eey2yOt2m2jV4g _lFHPMHh8Eey2yOt2m2jV4g _lFIdUHh8Eey2yOt2m2jV4g _lFJrcHh8Eey2yOt2m2jV4g _lFNV0Hh8Eey2yOt2m2jV4g" width="12" height="10">
       <target xmi:type="ecore:EClass" href="pizzeria.ecore#//Employe"/>
       <semanticElements xmi:type="ecore:EClass" href="pizzeria.ecore#//Employe"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_lEOeYHh8Eey2yOt2m2jV4g" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_z3qBAHh9Eey2yOt2m2jV4g" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
+        <labelFormat>italic</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_lErxYHh8Eey2yOt2m2jV4g" name="nom : EString" tooltipText="">
