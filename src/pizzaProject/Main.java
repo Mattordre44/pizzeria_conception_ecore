@@ -1,10 +1,9 @@
 package pizzaProject;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
+import java.util.Scanner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -15,23 +14,58 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import pizzeria.Caissier;
 import pizzeria.Client;
 import pizzeria.Commande;
-import pizzeria.Employe;
 import pizzeria.Ingredient;
 import pizzeria.Livreur;
 import pizzeria.Manager;
 import pizzeria.Pizza;
 import pizzeria.Pizzaiolo;
 import pizzeria.Pizzeria;
+import pizzeria.PizzeriaFactory;
 import pizzeria.PizzeriaPackage;
 import pizzeria.Recette;
 import pizzeria.Scooter;
 import pizzeria.Voiture;
-import pizzeria.PizzeriaFactory;
-
 
 public class Main {
+	
+	public static int readNextIntInConsole() {
+		return new Scanner(System.in).nextInt();
+	}
+	
+	public static String readNextLineInConsole() {
+		return new Scanner(System.in).nextLine();
+	}
+	
 	public static void main(String[] args) {
-		ResourceSet rs = getResourceSet();
+		
+		ResourceSetService resourceSetService = new ResourceSetService();
+		
+		ConsoleUtils.displayHomeMenuChoices();
+		switch(readNextIntInConsole()) {
+			case 1: 
+				System.out.println("Création d'une pizzeria");
+				Pizzeria newPizzeriaModel = PizzeriaFactory.eINSTANCE.createPizzeria();
+				System.out.print("Quel nom pour votre pizzeria : ");
+				newPizzeriaModel.setNom(readNextLineInConsole());
+				newPizzeriaModel.setDateDeCreation(new Date());
+				System.out.print("A quelle adresse se situe votre pizzeria : ");
+				newPizzeriaModel.setAdresse(readNextLineInConsole());
+				resourceSetService.saveResourceInXmiFile(newPizzeriaModel);
+				break;
+			case 2: 
+				System.out.println("Chargement d'une pizzeria");
+				Resource resourceSet = resourceSetService.getResourceOfXmiFile();
+				Pizzeria pizzeriaModel = (Pizzeria) resourceSet.getContents().get(0);
+				
+				break;
+			case 3: 
+				System.out.println("quitter");
+				System.exit(0);
+				break;
+				
+		}		
+		
+		/*ResourceSet rs = getResourceSet();
 		
 		Resource resource = rs.createResource(URI.createFileURI("modele.xmi"));
 				
@@ -169,7 +203,7 @@ public class Main {
 		    PizzeriaPackage.eNS_URI,
 		    PizzeriaPackage.eINSTANCE
 		);
-		return rs;
+		return rs;*/
 	}
 
 }
