@@ -20,9 +20,12 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import pizzeria.Client;
+import pizzeria.Commande;
 import pizzeria.Employe;
+import pizzeria.Ingredient;
 import pizzeria.Pizzeria;
 import pizzeria.PizzeriaPackage;
+import pizzeria.Recette;
 import pizzeria.Vehicule;
 
 /**
@@ -39,6 +42,9 @@ import pizzeria.Vehicule;
  *   <li>{@link pizzeria.impl.PizzeriaImpl#getVehicule <em>Vehicule</em>}</li>
  *   <li>{@link pizzeria.impl.PizzeriaImpl#getEmploye <em>Employe</em>}</li>
  *   <li>{@link pizzeria.impl.PizzeriaImpl#getClient <em>Client</em>}</li>
+ *   <li>{@link pizzeria.impl.PizzeriaImpl#getIngredient <em>Ingredient</em>}</li>
+ *   <li>{@link pizzeria.impl.PizzeriaImpl#getCommande <em>Commande</em>}</li>
+ *   <li>{@link pizzeria.impl.PizzeriaImpl#getRecette <em>Recette</em>}</li>
  * </ul>
  *
  * @generated
@@ -133,6 +139,36 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	 * @ordered
 	 */
 	protected EList<Client> client;
+
+	/**
+	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIngredient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Ingredient> ingredient;
+
+	/**
+	 * The cached value of the '{@link #getCommande() <em>Commande</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommande()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Commande> commande;
+
+	/**
+	 * The cached value of the '{@link #getRecette() <em>Recette</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecette()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Recette> recette;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -257,6 +293,42 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Ingredient> getIngredient() {
+		if (ingredient == null) {
+			ingredient = new EObjectContainmentEList<Ingredient>(Ingredient.class, this, PizzeriaPackage.PIZZERIA__INGREDIENT);
+		}
+		return ingredient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Commande> getCommande() {
+		if (commande == null) {
+			commande = new EObjectContainmentEList<Commande>(Commande.class, this, PizzeriaPackage.PIZZERIA__COMMANDE);
+		}
+		return commande;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Recette> getRecette() {
+		if (recette == null) {
+			recette = new EObjectContainmentEList<Recette>(Recette.class, this, PizzeriaPackage.PIZZERIA__RECETTE);
+		}
+		return recette;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -266,6 +338,12 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 				return ((InternalEList<?>)getEmploye()).basicRemove(otherEnd, msgs);
 			case PizzeriaPackage.PIZZERIA__CLIENT:
 				return ((InternalEList<?>)getClient()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.PIZZERIA__INGREDIENT:
+				return ((InternalEList<?>)getIngredient()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.PIZZERIA__COMMANDE:
+				return ((InternalEList<?>)getCommande()).basicRemove(otherEnd, msgs);
+			case PizzeriaPackage.PIZZERIA__RECETTE:
+				return ((InternalEList<?>)getRecette()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -290,6 +368,12 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 				return getEmploye();
 			case PizzeriaPackage.PIZZERIA__CLIENT:
 				return getClient();
+			case PizzeriaPackage.PIZZERIA__INGREDIENT:
+				return getIngredient();
+			case PizzeriaPackage.PIZZERIA__COMMANDE:
+				return getCommande();
+			case PizzeriaPackage.PIZZERIA__RECETTE:
+				return getRecette();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -324,6 +408,18 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 				getClient().clear();
 				getClient().addAll((Collection<? extends Client>)newValue);
 				return;
+			case PizzeriaPackage.PIZZERIA__INGREDIENT:
+				getIngredient().clear();
+				getIngredient().addAll((Collection<? extends Ingredient>)newValue);
+				return;
+			case PizzeriaPackage.PIZZERIA__COMMANDE:
+				getCommande().clear();
+				getCommande().addAll((Collection<? extends Commande>)newValue);
+				return;
+			case PizzeriaPackage.PIZZERIA__RECETTE:
+				getRecette().clear();
+				getRecette().addAll((Collection<? extends Recette>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -354,6 +450,15 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 			case PizzeriaPackage.PIZZERIA__CLIENT:
 				getClient().clear();
 				return;
+			case PizzeriaPackage.PIZZERIA__INGREDIENT:
+				getIngredient().clear();
+				return;
+			case PizzeriaPackage.PIZZERIA__COMMANDE:
+				getCommande().clear();
+				return;
+			case PizzeriaPackage.PIZZERIA__RECETTE:
+				getRecette().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -378,6 +483,12 @@ public class PizzeriaImpl extends MinimalEObjectImpl.Container implements Pizzer
 				return employe != null && !employe.isEmpty();
 			case PizzeriaPackage.PIZZERIA__CLIENT:
 				return client != null && !client.isEmpty();
+			case PizzeriaPackage.PIZZERIA__INGREDIENT:
+				return ingredient != null && !ingredient.isEmpty();
+			case PizzeriaPackage.PIZZERIA__COMMANDE:
+				return commande != null && !commande.isEmpty();
+			case PizzeriaPackage.PIZZERIA__RECETTE:
+				return recette != null && !recette.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

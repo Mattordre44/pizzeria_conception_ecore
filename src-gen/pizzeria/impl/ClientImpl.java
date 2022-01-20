@@ -2,21 +2,11 @@
  */
 package pizzeria.impl;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 import pizzeria.Client;
-import pizzeria.Commande;
 import pizzeria.PizzeriaPackage;
 
 /**
@@ -31,7 +21,6 @@ import pizzeria.PizzeriaPackage;
  *   <li>{@link pizzeria.impl.ClientImpl#getPrenom <em>Prenom</em>}</li>
  *   <li>{@link pizzeria.impl.ClientImpl#getNumeroDeTelephone <em>Numero De Telephone</em>}</li>
  *   <li>{@link pizzeria.impl.ClientImpl#getAdresse <em>Adresse</em>}</li>
- *   <li>{@link pizzeria.impl.ClientImpl#getCommande <em>Commande</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,16 +105,6 @@ public class ClientImpl extends MinimalEObjectImpl.Container implements Client {
 	 * @ordered
 	 */
 	protected String adresse = ADRESSE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getCommande() <em>Commande</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCommande()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Commande> commande;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,32 +214,6 @@ public class ClientImpl extends MinimalEObjectImpl.Container implements Client {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Commande> getCommande() {
-		if (commande == null) {
-			commande = new EObjectContainmentEList<Commande>(Commande.class, this, PizzeriaPackage.CLIENT__COMMANDE);
-		}
-		return commande;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PizzeriaPackage.CLIENT__COMMANDE:
-				return ((InternalEList<?>)getCommande()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -272,8 +225,6 @@ public class ClientImpl extends MinimalEObjectImpl.Container implements Client {
 				return getNumeroDeTelephone();
 			case PizzeriaPackage.CLIENT__ADRESSE:
 				return getAdresse();
-			case PizzeriaPackage.CLIENT__COMMANDE:
-				return getCommande();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,10 +250,6 @@ public class ClientImpl extends MinimalEObjectImpl.Container implements Client {
 			case PizzeriaPackage.CLIENT__ADRESSE:
 				setAdresse((String)newValue);
 				return;
-			case PizzeriaPackage.CLIENT__COMMANDE:
-				getCommande().clear();
-				getCommande().addAll((Collection<? extends Commande>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -327,9 +274,6 @@ public class ClientImpl extends MinimalEObjectImpl.Container implements Client {
 			case PizzeriaPackage.CLIENT__ADRESSE:
 				setAdresse(ADRESSE_EDEFAULT);
 				return;
-			case PizzeriaPackage.CLIENT__COMMANDE:
-				getCommande().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,8 +294,6 @@ public class ClientImpl extends MinimalEObjectImpl.Container implements Client {
 				return NUMERO_DE_TELEPHONE_EDEFAULT == null ? numeroDeTelephone != null : !NUMERO_DE_TELEPHONE_EDEFAULT.equals(numeroDeTelephone);
 			case PizzeriaPackage.CLIENT__ADRESSE:
 				return ADRESSE_EDEFAULT == null ? adresse != null : !ADRESSE_EDEFAULT.equals(adresse);
-			case PizzeriaPackage.CLIENT__COMMANDE:
-				return commande != null && !commande.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

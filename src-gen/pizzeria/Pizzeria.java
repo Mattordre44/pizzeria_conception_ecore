@@ -23,6 +23,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link pizzeria.Pizzeria#getVehicule <em>Vehicule</em>}</li>
  *   <li>{@link pizzeria.Pizzeria#getEmploye <em>Employe</em>}</li>
  *   <li>{@link pizzeria.Pizzeria#getClient <em>Client</em>}</li>
+ *   <li>{@link pizzeria.Pizzeria#getIngredient <em>Ingredient</em>}</li>
+ *   <li>{@link pizzeria.Pizzeria#getCommande <em>Commande</em>}</li>
+ *   <li>{@link pizzeria.Pizzeria#getRecette <em>Recette</em>}</li>
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getPizzeria()
@@ -131,5 +134,41 @@ public interface Pizzeria extends EObject {
 	 * @generated
 	 */
 	EList<Client> getClient();
+
+	/**
+	 * Returns the value of the '<em><b>Ingredient</b></em>' containment reference list.
+	 * The list contents are of type {@link pizzeria.Ingredient}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ingredient</em>' containment reference list.
+	 * @see pizzeria.PizzeriaPackage#getPizzeria_Ingredient()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Ingredient> getIngredient();
+
+	/**
+	 * Returns the value of the '<em><b>Commande</b></em>' containment reference list.
+	 * The list contents are of type {@link pizzeria.Commande}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Commande</em>' containment reference list.
+	 * @see pizzeria.PizzeriaPackage#getPizzeria_Commande()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Commande> getCommande();
+
+	/**
+	 * Returns the value of the '<em><b>Recette</b></em>' containment reference list.
+	 * The list contents are of type {@link pizzeria.Recette}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Recette</em>' containment reference list.
+	 * @see pizzeria.PizzeriaPackage#getPizzeria_Recette()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Recette> getRecette();
 
 } // Pizzeria

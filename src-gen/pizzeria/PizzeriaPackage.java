@@ -194,13 +194,40 @@ public interface PizzeriaPackage extends EPackage {
 	int PIZZERIA__CLIENT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Ingredient</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIZZERIA__INGREDIENT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Commande</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIZZERIA__COMMANDE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Recette</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIZZERIA__RECETTE = 8;
+
+	/**
 	 * The number of structural features of the '<em>Pizzeria</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIZZERIA_FEATURE_COUNT = 6;
+	int PIZZERIA_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Pizzeria</em>' class.
@@ -249,7 +276,7 @@ public interface PizzeriaPackage extends EPackage {
 	int VEHICULE__EST_FONCTIONNEL = 2;
 
 	/**
-	 * The feature id for the '<em><b>Livreur</b></em>' containment reference.
+	 * The feature id for the '<em><b>Livreur</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -422,13 +449,22 @@ public interface PizzeriaPackage extends EPackage {
 	int LIVREUR__COMMANDE = EMPLOYE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Vehicule</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIVREUR__VEHICULE = EMPLOYE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Livreur</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIVREUR_FEATURE_COUNT = EMPLOYE_FEATURE_COUNT + 1;
+	int LIVREUR_FEATURE_COUNT = EMPLOYE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Livreur</em>' class.
@@ -559,7 +595,7 @@ public interface PizzeriaPackage extends EPackage {
 	int VOITURE__EST_FONCTIONNEL = VEHICULE__EST_FONCTIONNEL;
 
 	/**
-	 * The feature id for the '<em><b>Livreur</b></em>' containment reference.
+	 * The feature id for the '<em><b>Livreur</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -623,7 +659,7 @@ public interface PizzeriaPackage extends EPackage {
 	int SCOOTER__EST_FONCTIONNEL = VEHICULE__EST_FONCTIONNEL;
 
 	/**
-	 * The feature id for the '<em><b>Livreur</b></em>' containment reference.
+	 * The feature id for the '<em><b>Livreur</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -825,22 +861,13 @@ public interface PizzeriaPackage extends EPackage {
 	int CLIENT__ADRESSE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Commande</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__COMMANDE = 4;
-
-	/**
 	 * The number of structural features of the '<em>Client</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLIENT_FEATURE_COUNT = 5;
+	int CLIENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Client</em>' class.
@@ -998,13 +1025,22 @@ public interface PizzeriaPackage extends EPackage {
 	int COMMANDE__CAISSIER = 5;
 
 	/**
+	 * The feature id for the '<em><b>Client</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMANDE__CLIENT = 6;
+
+	/**
 	 * The number of structural features of the '<em>Commande</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMANDE_FEATURE_COUNT = 6;
+	int COMMANDE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Commande</em>' class.
@@ -1157,6 +1193,39 @@ public interface PizzeriaPackage extends EPackage {
 	EReference getPizzeria_Client();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link pizzeria.Pizzeria#getIngredient <em>Ingredient</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Ingredient</em>'.
+	 * @see pizzeria.Pizzeria#getIngredient()
+	 * @see #getPizzeria()
+	 * @generated
+	 */
+	EReference getPizzeria_Ingredient();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link pizzeria.Pizzeria#getCommande <em>Commande</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Commande</em>'.
+	 * @see pizzeria.Pizzeria#getCommande()
+	 * @see #getPizzeria()
+	 * @generated
+	 */
+	EReference getPizzeria_Commande();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link pizzeria.Pizzeria#getRecette <em>Recette</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Recette</em>'.
+	 * @see pizzeria.Pizzeria#getRecette()
+	 * @see #getPizzeria()
+	 * @generated
+	 */
+	EReference getPizzeria_Recette();
+
+	/**
 	 * Returns the meta object for class '{@link pizzeria.Vehicule <em>Vehicule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1200,10 +1269,10 @@ public interface PizzeriaPackage extends EPackage {
 	EAttribute getVehicule_EstFonctionnel();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link pizzeria.Vehicule#getLivreur <em>Livreur</em>}'.
+	 * Returns the meta object for the reference list '{@link pizzeria.Vehicule#getLivreur <em>Livreur</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Livreur</em>'.
+	 * @return the meta object for the reference list '<em>Livreur</em>'.
 	 * @see pizzeria.Vehicule#getLivreur()
 	 * @see #getVehicule()
 	 * @generated
@@ -1251,6 +1320,17 @@ public interface PizzeriaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLivreur_Commande();
+
+	/**
+	 * Returns the meta object for the reference '{@link pizzeria.Livreur#getVehicule <em>Vehicule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Vehicule</em>'.
+	 * @see pizzeria.Livreur#getVehicule()
+	 * @see #getLivreur()
+	 * @generated
+	 */
+	EReference getLivreur_Vehicule();
 
 	/**
 	 * Returns the meta object for class '{@link pizzeria.Manager <em>Manager</em>}'.
@@ -1433,17 +1513,6 @@ public interface PizzeriaPackage extends EPackage {
 	EAttribute getClient_Adresse();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link pizzeria.Client#getCommande <em>Commande</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Commande</em>'.
-	 * @see pizzeria.Client#getCommande()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EReference getClient_Commande();
-
-	/**
 	 * Returns the meta object for class '{@link pizzeria.Caissier <em>Caissier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1539,6 +1608,17 @@ public interface PizzeriaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCommande_Caissier();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link pizzeria.Commande#getClient <em>Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Client</em>'.
+	 * @see pizzeria.Commande#getClient()
+	 * @see #getCommande()
+	 * @generated
+	 */
+	EReference getCommande_Client();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1672,6 +1752,30 @@ public interface PizzeriaPackage extends EPackage {
 		EReference PIZZERIA__CLIENT = eINSTANCE.getPizzeria_Client();
 
 		/**
+		 * The meta object literal for the '<em><b>Ingredient</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIZZERIA__INGREDIENT = eINSTANCE.getPizzeria_Ingredient();
+
+		/**
+		 * The meta object literal for the '<em><b>Commande</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIZZERIA__COMMANDE = eINSTANCE.getPizzeria_Commande();
+
+		/**
+		 * The meta object literal for the '<em><b>Recette</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIZZERIA__RECETTE = eINSTANCE.getPizzeria_Recette();
+
+		/**
 		 * The meta object literal for the '{@link pizzeria.impl.VehiculeImpl <em>Vehicule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1706,7 +1810,7 @@ public interface PizzeriaPackage extends EPackage {
 		EAttribute VEHICULE__EST_FONCTIONNEL = eINSTANCE.getVehicule_EstFonctionnel();
 
 		/**
-		 * The meta object literal for the '<em><b>Livreur</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Livreur</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1748,6 +1852,14 @@ public interface PizzeriaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIVREUR__COMMANDE = eINSTANCE.getLivreur_Commande();
+
+		/**
+		 * The meta object literal for the '<em><b>Vehicule</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIVREUR__VEHICULE = eINSTANCE.getLivreur_Vehicule();
 
 		/**
 		 * The meta object literal for the '{@link pizzeria.impl.ManagerImpl <em>Manager</em>}' class.
@@ -1900,14 +2012,6 @@ public interface PizzeriaPackage extends EPackage {
 		EAttribute CLIENT__ADRESSE = eINSTANCE.getClient_Adresse();
 
 		/**
-		 * The meta object literal for the '<em><b>Commande</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLIENT__COMMANDE = eINSTANCE.getClient_Commande();
-
-		/**
 		 * The meta object literal for the '{@link pizzeria.impl.CaissierImpl <em>Caissier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1982,6 +2086,14 @@ public interface PizzeriaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMMANDE__CAISSIER = eINSTANCE.getCommande_Caissier();
+
+		/**
+		 * The meta object literal for the '<em><b>Client</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMANDE__CLIENT = eINSTANCE.getCommande_Client();
 
 	}
 

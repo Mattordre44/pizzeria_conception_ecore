@@ -45,6 +45,6 @@ public class ResourceSetService {
 	}
 	
 	public Resource getResourceOfXmiFile() {
-		return resourceSet.getResource(URI.createFileURI("modele.xmi"), false);
+		return resourceSet.getResource(URI.createFileURI("modele.xmi"), true);
 	}
 }

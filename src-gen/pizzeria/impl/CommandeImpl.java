@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import pizzeria.Caissier;
+import pizzeria.Client;
 import pizzeria.Commande;
 import pizzeria.Livreur;
 import pizzeria.Pizza;
@@ -38,6 +39,7 @@ import pizzeria.PizzeriaPackage;
  *   <li>{@link pizzeria.impl.CommandeImpl#getLivreur <em>Livreur</em>}</li>
  *   <li>{@link pizzeria.impl.CommandeImpl#isLivrable <em>Livrable</em>}</li>
  *   <li>{@link pizzeria.impl.CommandeImpl#getCaissier <em>Caissier</em>}</li>
+ *   <li>{@link pizzeria.impl.CommandeImpl#getClient <em>Client</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,6 +134,16 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
 	 * @ordered
 	 */
 	protected Caissier caissier;
+
+	/**
+	 * The cached value of the '{@link #getClient() <em>Client</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClient()
+	 * @generated
+	 * @ordered
+	 */
+	protected Client client;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -352,6 +364,49 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Client getClient() {
+		return client;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetClient(Client newClient, NotificationChain msgs) {
+		Client oldClient = client;
+		client = newClient;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PizzeriaPackage.COMMANDE__CLIENT, oldClient, newClient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClient(Client newClient) {
+		if (newClient != client) {
+			NotificationChain msgs = null;
+			if (client != null)
+				msgs = ((InternalEObject)client).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PizzeriaPackage.COMMANDE__CLIENT, null, msgs);
+			if (newClient != null)
+				msgs = ((InternalEObject)newClient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PizzeriaPackage.COMMANDE__CLIENT, null, msgs);
+			msgs = basicSetClient(newClient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.COMMANDE__CLIENT, newClient, newClient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -379,6 +434,8 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
 				return basicSetLivreur(null, msgs);
 			case PizzeriaPackage.COMMANDE__CAISSIER:
 				return basicSetCaissier(null, msgs);
+			case PizzeriaPackage.COMMANDE__CLIENT:
+				return basicSetClient(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -405,6 +462,8 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
 			case PizzeriaPackage.COMMANDE__CAISSIER:
 				if (resolve) return getCaissier();
 				return basicGetCaissier();
+			case PizzeriaPackage.COMMANDE__CLIENT:
+				return getClient();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -437,6 +496,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
 			case PizzeriaPackage.COMMANDE__CAISSIER:
 				setCaissier((Caissier)newValue);
 				return;
+			case PizzeriaPackage.COMMANDE__CLIENT:
+				setClient((Client)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -467,6 +529,9 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
 			case PizzeriaPackage.COMMANDE__CAISSIER:
 				setCaissier((Caissier)null);
 				return;
+			case PizzeriaPackage.COMMANDE__CLIENT:
+				setClient((Client)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -491,6 +556,8 @@ public class CommandeImpl extends MinimalEObjectImpl.Container implements Comman
 				return livrable != LIVRABLE_EDEFAULT;
 			case PizzeriaPackage.COMMANDE__CAISSIER:
 				return caissier != null;
+			case PizzeriaPackage.COMMANDE__CLIENT:
+				return client != null;
 		}
 		return super.eIsSet(featureID);
 	}

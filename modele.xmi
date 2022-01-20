@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<pizzeria:Pizzeria xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pizzeria="http://www.example.org/pizzeria" adresse="32 rue de fleurs" nom="A casa de Vito" dateDeCreation="2022-01-20T15:48:42.634+0100"/>
+<pizzeria:Pizzeria xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pizzeria="http://www.example.org/pizzeria" adresse="4 rue des m&#xe9;sanges" nom="A casa de vito" dateDeCreation="2022-01-20T21:18:46.954+0100">
+  <employe xsi:type="pizzeria:Manager" nom="Vito" prenom="Mario" salaire="6300.0" dateDeNaissance="1974-07-07T00:00:00.000+0100"/>
+  <ingredient nom="jambon"/>
+  <ingredient nom="sauceTomate"/>
+  <ingredient nom="mozzarella"/>
+  <ingredient nom="roquette"/>
+  <ingredient nom="gorgonzola"/>
+</pizzeria:Pizzeria>

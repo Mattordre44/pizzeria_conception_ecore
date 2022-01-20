@@ -2,7 +2,6 @@
  */
 package pizzeria;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link pizzeria.Client#getPrenom <em>Prenom</em>}</li>
  *   <li>{@link pizzeria.Client#getNumeroDeTelephone <em>Numero De Telephone</em>}</li>
  *   <li>{@link pizzeria.Client#getAdresse <em>Adresse</em>}</li>
- *   <li>{@link pizzeria.Client#getCommande <em>Commande</em>}</li>
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getClient()
@@ -113,17 +111,5 @@ public interface Client extends EObject {
 	 * @generated
 	 */
 	void setAdresse(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Commande</b></em>' containment reference list.
-	 * The list contents are of type {@link pizzeria.Commande}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Commande</em>' containment reference list.
-	 * @see pizzeria.PizzeriaPackage#getClient_Commande()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Commande> getCommande();
 
 } // Client

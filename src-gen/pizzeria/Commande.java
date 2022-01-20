@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link pizzeria.Commande#getLivreur <em>Livreur</em>}</li>
  *   <li>{@link pizzeria.Commande#isLivrable <em>Livrable</em>}</li>
  *   <li>{@link pizzeria.Commande#getCaissier <em>Caissier</em>}</li>
+ *   <li>{@link pizzeria.Commande#getClient <em>Client</em>}</li>
  * </ul>
  *
  * @see pizzeria.PizzeriaPackage#getCommande()
@@ -155,5 +156,27 @@ public interface Commande extends EObject {
 	 * @generated
 	 */
 	void setCaissier(Caissier value);
+
+	/**
+	 * Returns the value of the '<em><b>Client</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Client</em>' containment reference.
+	 * @see #setClient(Client)
+	 * @see pizzeria.PizzeriaPackage#getCommande_Client()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Client getClient();
+
+	/**
+	 * Sets the value of the '{@link pizzeria.Commande#getClient <em>Client</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Client</em>' containment reference.
+	 * @see #getClient()
+	 * @generated
+	 */
+	void setClient(Client value);
 
 } // Commande
