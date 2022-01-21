@@ -30,6 +30,17 @@ public class Main {
 		pizzeriaModel.getIngredient().add(gorgonzola);
 	}
 	
+	public static Pizzeria createPizzeria() {
+		System.out.println("\nCréation d'une pizzeria");
+		Pizzeria newPizzeriaModel = PizzeriaFactory.eINSTANCE.createPizzeria();
+		System.out.print("\nQuel nom pour votre pizzeria : ");
+		newPizzeriaModel.setNom(ConsoleUtils.readNextLineInConsole());
+		newPizzeriaModel.setDateDeCreation(new Date());
+		System.out.print("\nA quelle adresse se situe votre pizzeria : ");
+		newPizzeriaModel.setAdresse(ConsoleUtils.readNextLineInConsole());
+		return newPizzeriaModel;
+	}
+		
 	public static void managePizzeria(Pizzeria pizzeriaModel) {
 		PizzeriaService pizzeriaService = new PizzeriaService(pizzeriaModel);
 		boolean close = false;
@@ -71,7 +82,16 @@ public class Main {
 				break;
 			case 43: 
 				pizzeriaService.listRecettes();
-				break;		
+				break;	
+			case 51:
+				pizzeriaService.createIngredient();
+				break;
+			case 52:
+				pizzeriaService.deleteIngredient();
+				break;
+			case 53: 
+				pizzeriaService.listIngredients();
+				break;
 			case 0:
 				System.out.println("\nFermeture de l'application");
 				close = true;
@@ -85,13 +105,7 @@ public class Main {
 		ConsoleUtils.displayHomeMenuChoices();
 		switch(ConsoleUtils.readNextIntInConsole()) {
 			case 1: 
-				System.out.println("\nCréation d'une pizzeria");
-				Pizzeria newPizzeriaModel = PizzeriaFactory.eINSTANCE.createPizzeria();
-				System.out.print("\nQuel nom pour votre pizzeria : ");
-				newPizzeriaModel.setNom(ConsoleUtils.readNextLineInConsole());
-				newPizzeriaModel.setDateDeCreation(new Date());
-				System.out.print("\nA quelle adresse se situe votre pizzeria : ");
-				newPizzeriaModel.setAdresse(ConsoleUtils.readNextLineInConsole());
+				Pizzeria newPizzeriaModel = createPizzeria();
 				setUpPizzeriaIngredients(newPizzeriaModel);
 				managePizzeria(newPizzeriaModel);
 				resourceSetService.saveResourceInXmiFile(newPizzeriaModel);
@@ -101,6 +115,7 @@ public class Main {
 				Resource resourceSet = resourceSetService.getResourceOfXmiFile();
 				Pizzeria pizzeriaModel = (Pizzeria)(resourceSet.getContents().get(0));
 				managePizzeria(pizzeriaModel);
+				resourceSet.getContents().add(pizzeriaModel);
 				try {
 					resourceSet.save(Collections.EMPTY_MAP);
 				} catch(IOException e) {

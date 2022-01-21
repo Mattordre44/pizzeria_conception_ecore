@@ -2,19 +2,12 @@
  */
 package pizzeria.impl;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 import pizzeria.Pizza;
 import pizzeria.PizzeriaPackage;
 import pizzeria.Recette;
@@ -55,14 +48,14 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	protected boolean pateMoelleuse = PATE_MOELLEUSE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRecette() <em>Recette</em>}' containment reference list.
+	 * The cached value of the '{@link #getRecette() <em>Recette</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRecette()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Recette> recette;
+	protected Recette recette;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,9 +102,14 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Recette> getRecette() {
-		if (recette == null) {
-			recette = new EObjectContainmentEList<Recette>(Recette.class, this, PizzeriaPackage.PIZZA__RECETTE);
+	public Recette getRecette() {
+		if (recette != null && recette.eIsProxy()) {
+			InternalEObject oldRecette = (InternalEObject)recette;
+			recette = (Recette)eResolveProxy(oldRecette);
+			if (recette != oldRecette) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PizzeriaPackage.PIZZA__RECETTE, oldRecette, recette));
+			}
 		}
 		return recette;
 	}
@@ -121,13 +119,20 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PizzeriaPackage.PIZZA__RECETTE:
-				return ((InternalEList<?>)getRecette()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public Recette basicGetRecette() {
+		return recette;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecette(Recette newRecette) {
+		Recette oldRecette = recette;
+		recette = newRecette;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PizzeriaPackage.PIZZA__RECETTE, oldRecette, recette));
 	}
 
 	/**
@@ -141,7 +146,8 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 			case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
 				return isPateMoelleuse();
 			case PizzeriaPackage.PIZZA__RECETTE:
-				return getRecette();
+				if (resolve) return getRecette();
+				return basicGetRecette();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,8 +165,7 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 				setPateMoelleuse((Boolean)newValue);
 				return;
 			case PizzeriaPackage.PIZZA__RECETTE:
-				getRecette().clear();
-				getRecette().addAll((Collection<? extends Recette>)newValue);
+				setRecette((Recette)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,7 +183,7 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 				setPateMoelleuse(PATE_MOELLEUSE_EDEFAULT);
 				return;
 			case PizzeriaPackage.PIZZA__RECETTE:
-				getRecette().clear();
+				setRecette((Recette)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -195,7 +200,7 @@ public class PizzaImpl extends MinimalEObjectImpl.Container implements Pizza {
 			case PizzeriaPackage.PIZZA__PATE_MOELLEUSE:
 				return pateMoelleuse != PATE_MOELLEUSE_EDEFAULT;
 			case PizzeriaPackage.PIZZA__RECETTE:
-				return recette != null && !recette.isEmpty();
+				return recette != null;
 		}
 		return super.eIsSet(featureID);
 	}

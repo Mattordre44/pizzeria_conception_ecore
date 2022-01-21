@@ -43,7 +43,7 @@
     <genClasses ecoreClass="pizzeria.ecore#//Scooter"/>
     <genClasses ecoreClass="pizzeria.ecore#//Pizza">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Pizza/pateMoelleuse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Pizza/recette"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pizzeria.ecore#//Pizza/recette"/>
     </genClasses>
     <genClasses ecoreClass="pizzeria.ecore#//Recette">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pizzeria.ecore#//Recette/duree"/>

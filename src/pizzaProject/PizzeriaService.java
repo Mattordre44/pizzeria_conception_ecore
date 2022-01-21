@@ -11,6 +11,7 @@ import pizzeria.Caissier;
 import pizzeria.Client;
 import pizzeria.Commande;
 import pizzeria.Employe;
+import pizzeria.Ingredient;
 import pizzeria.Livreur;
 import pizzeria.Manager;
 import pizzeria.Pizza;
@@ -198,7 +199,7 @@ public class PizzeriaService {
 					Pizza pizza = PizzeriaFactory.eINSTANCE.createPizza();
 					System.out.println("\n Assigner la recette : ");
 					ConsoleUtils.displayRecettes(pizzeriaModel.getRecette());
-					pizza.getRecette().add(pizzeriaModel.getRecette().get(ConsoleUtils.readNextIntInConsole()-1));
+					pizza.setRecette(pizzeriaModel.getRecette().get(ConsoleUtils.readNextIntInConsole()-1));
 					
 					List<Pizzaiolo> pizzaiolos = getPizzaiolos(pizzeriaModel);
 					ConsoleUtils.displayPizzaiolos(pizzaiolos);
@@ -245,7 +246,8 @@ public class PizzeriaService {
 			switch(ConsoleUtils.readNextIntInConsole()) {
 				case 1:
 					ConsoleUtils.displayIngredients(pizzeriaModel.getIngredient());
-					recette.getIngredient().add(pizzeriaModel.getIngredient().get(ConsoleUtils.readNextIntInConsole()-1));
+					Ingredient selectedIngredient = pizzeriaModel.getIngredient().get(ConsoleUtils.readNextIntInConsole()-1);
+					recette.getIngredient().add(selectedIngredient);
 					break;
 				default:
 					add = false;
@@ -266,9 +268,32 @@ public class PizzeriaService {
 		}
 	}
 	
+	public void createIngredient() {
+		Ingredient ingredient = PizzeriaFactory.eINSTANCE.createIngredient();
+		System.out.print("\nQuelle est le nom de l'ingrédient : ");
+		ingredient.setNom(ConsoleUtils.readNextLineInConsole());
+		pizzeriaModel.getIngredient().add(ingredient);
+	}
+	
 	public void listRecettes() {
 		ConsoleUtils.displayRecettes(pizzeriaModel.getRecette());
 	}
+	
+	public void deleteIngredient() {
+		if(pizzeriaModel.getIngredient().size() != 0) {
+			System.out.println("\nQuel ingrédient voulez-vous supprimer ?");
+			ConsoleUtils.displayIngredients(pizzeriaModel.getIngredient());
+			pizzeriaModel.getIngredient().remove(ConsoleUtils.readNextIntInConsole() - 1);
+			System.out.println("\nIngrédient supprimée\n");
+		} else {
+			System.out.println("\nIl n'y a aucuns ingrédients\n");
+		}
+	}
+	
+	public void listIngredients() {
+		ConsoleUtils.displayIngredients(pizzeriaModel.getIngredient());
+	}
+	
 	
 	public List<Livreur> getLivreurs(Pizzeria pizzeriaModel) {
 		List<Livreur> livreurs = new ArrayList<>();

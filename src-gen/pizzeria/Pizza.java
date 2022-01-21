@@ -2,7 +2,6 @@
  */
 package pizzeria;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -46,15 +45,25 @@ public interface Pizza extends EObject {
 	void setPateMoelleuse(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Recette</b></em>' containment reference list.
-	 * The list contents are of type {@link pizzeria.Recette}.
+	 * Returns the value of the '<em><b>Recette</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Recette</em>' containment reference list.
+	 * @return the value of the '<em>Recette</em>' reference.
+	 * @see #setRecette(Recette)
 	 * @see pizzeria.PizzeriaPackage#getPizza_Recette()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	EList<Recette> getRecette();
+	Recette getRecette();
+
+	/**
+	 * Sets the value of the '{@link pizzeria.Pizza#getRecette <em>Recette</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Recette</em>' reference.
+	 * @see #getRecette()
+	 * @generated
+	 */
+	void setRecette(Recette value);
 
 } // Pizza

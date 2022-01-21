@@ -57,6 +57,10 @@ public class ConsoleUtils {
 		System.out.println("41 - Créer une recette");
 		System.out.println("42 - Supprimer une recette");
 		System.out.println("43 - Afficher les recettes");
+		System.out.println("------------ INGREDIENTS ------------");
+		System.out.println("51 - Créer un ingrédient");
+		System.out.println("52 - Supprimer un ingrédient");
+		System.out.println("53 - Afficher les ingrédients");
 		System.out.println("0 - Quitter l'application");
 	}
 	
@@ -148,7 +152,7 @@ public class ConsoleUtils {
 		System.out.println("\nIl y a " + pizzaiolos.size() + " pizzaiolos :");
 		int index = 1;
 		for(Employe pizzaiolo: pizzaiolos) {
-			System.out.println(index + ") " + pizzaiolo.getPrenom() + " " + pizzaiolo.getNom() + " : " + pizzaiolo.getSalaire() + " € -> " + "caissier");
+			System.out.println(index + ") " + pizzaiolo.getPrenom() + " " + pizzaiolo.getNom() + " : " + pizzaiolo.getSalaire() + " €");
 			index ++;
 		}
 		System.out.print("\n");

@@ -705,7 +705,7 @@ public interface PizzeriaPackage extends EPackage {
 	int PIZZA__PATE_MOELLEUSE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Recette</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Recette</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1395,10 +1395,10 @@ public interface PizzeriaPackage extends EPackage {
 	EAttribute getPizza_PateMoelleuse();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link pizzeria.Pizza#getRecette <em>Recette</em>}'.
+	 * Returns the meta object for the reference '{@link pizzeria.Pizza#getRecette <em>Recette</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Recette</em>'.
+	 * @return the meta object for the reference '<em>Recette</em>'.
 	 * @see pizzeria.Pizza#getRecette()
 	 * @see #getPizza()
 	 * @generated
@@ -1918,7 +1918,7 @@ public interface PizzeriaPackage extends EPackage {
 		EAttribute PIZZA__PATE_MOELLEUSE = eINSTANCE.getPizza_PateMoelleuse();
 
 		/**
-		 * The meta object literal for the '<em><b>Recette</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Recette</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
